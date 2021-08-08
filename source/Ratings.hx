@@ -111,10 +111,35 @@ class Ratings
             return "sick"; // FUNNY
 	
 
-        var rating = checkRating(noteDiff,customTimeScale);
+        if (FlxG.save.data.oldtimings) 
+            {
+                if (noteDiff > 166 * customTimeScale) // so god damn early its a miss
+                    return "miss";
+                if (noteDiff > 135 * customTimeScale) // way early
+                    return "shit";
+                else if (noteDiff > 90 * customTimeScale) // early
+                    return "bad";
+                else if (noteDiff > 45 * customTimeScale) // your kinda there
+                    return "good";
+                else if (noteDiff < -45 * customTimeScale) // little late
+                    return "good";
+                else if (noteDiff < -90 * customTimeScale) // late
+                    return "bad";
+                else if (noteDiff < -135 * customTimeScale) // late as fuck
+                    return "shit";
+                else if (noteDiff < -166 * customTimeScale) // so god damn late its a miss
+                    return "miss";
+                return "sick";
+            }
+        else 
+            {
+                var rating = checkRating(noteDiff,customTimeScale);
+                return rating;
+            }
 
 
-        return rating;
+
+
     }
 
     public static function checkRating(ms:Float, ts:Float)

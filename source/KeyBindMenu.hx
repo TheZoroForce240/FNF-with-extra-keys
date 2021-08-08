@@ -35,7 +35,7 @@ class KeyBindMenu extends FlxSubState
     var keyTextDisplay:FlxText;
     var keyWarning:FlxText;
     var warningTween:FlxTween;
-    var keyText:Array<String> = ["LEFT", "DOWN", "UP", "RIGHT", "N0", "N1", "N2", "N3", "N4", "N5", "N6", "N7", "N8", "L1", "U1", "R1", "L2", "D1", "R2"];
+    var keyText:Array<String> = ["LEFT", "DOWN", "UP", "RIGHT", "9K N0", "9K N1", "9K N2", "9K N3", "9K N4", "9K N5", "9K N6", "9K N7", "9K N8", "6K L1", "6K U1", "6K R1", "6K L2", "6K D1", "6K R2"];
     var defaultKeys:Array<String> = ["A", "S", "W", "D", "A", "S", "D", "F", "SPACE", "H", "J", "K", "L", "S", "D", "F", "J", "K", "L"];
 
     var defaultGpKeys:Array<String> = ["DPAD_LEFT", "DPAD_DOWN", "DPAD_UP", "DPAD_RIGHT"];
@@ -297,6 +297,7 @@ class KeyBindMenu extends FlxSubState
         FlxG.save.data.downBind = keys[1];
         FlxG.save.data.leftBind = keys[0];
         FlxG.save.data.rightBind = keys[3];
+
         
         FlxG.save.data.gpupBind = gpKeys[2];
         FlxG.save.data.gpdownBind = gpKeys[1];

@@ -1474,17 +1474,87 @@ class PlayState extends MusicBeatState
 			binds = [FlxG.save.data.N0Bind, FlxG.save.data.N1Bind, FlxG.save.data.N2Bind, FlxG.save.data.N3Bind, FlxG.save.data.N5Bind, FlxG.save.data.N6Bind, FlxG.save.data.N7Bind, FlxG.save.data.N8Bind];
 		var data = -1;
 		
-		switch(evt.keyCode) // arrow keys
-		{
-			case 37:
-				data = 0;
-			case 40:
-				data = 1;
-			case 38:
-				data = 2;
-			case 39:
-				data = 3;
-		}
+		if (SONG.mania == 0)
+			{
+				switch(evt.keyCode) // arrow keys // why the fuck are arrow keys hardcoded it fucking breaks the controls with extra keys
+				{
+					case 37:
+						data = 0;
+					case 40:
+						data = 1;
+					case 38:
+						data = 2;
+					case 39:
+						data = 3;
+				}
+			}
+		else if (SONG.mania == 1)
+			{
+				switch(evt.keyCode) // arrow keys
+				{
+					case 37:
+						data = 3;
+					case 40:
+						data = 4;
+					case 39:
+						data = 5;
+				}
+			}
+		else if (SONG.mania == 2)
+			{
+				switch(evt.keyCode) // arrow keys
+				{
+					case 37:
+						data = 5;
+					case 40:
+						data = 6;
+					case 38:
+						data = 7;
+					case 39:
+						data = 8;
+				}
+			}
+		else if (SONG.mania == 3)
+			{
+				switch(evt.keyCode) // arrow keys
+				{
+					case 37:
+						data = 0;
+					case 40:
+						data = 1;
+					case 38:
+						data = 3;
+					case 39:
+						data = 4;
+				}
+			}
+		else if (SONG.mania == 4)
+			{
+				switch(evt.keyCode) // arrow keys
+				{
+					case 37:
+						data = 4;
+					case 40:
+						data = 5;
+					case 39:
+						data = 6;
+				}
+			}
+		else if (SONG.mania == 5)
+			{
+				switch(evt.keyCode) // arrow keys
+				{
+					case 37:
+						data = 4;
+					case 40:
+						data = 5;
+					case 38:
+						data = 6;
+					case 39:
+						data = 7;
+				}
+			}
+		
 
 		for (i in 0...binds.length) // binds
 		{
@@ -1755,64 +1825,185 @@ class PlayState extends MusicBeatState
 			{
 				case 'pixel':
 					babyArrow.loadGraphic(Paths.image('weeb/pixelUI/arrows-pixels'), true, 17, 17);
-					babyArrow.animation.add('green', [6]);
-					babyArrow.animation.add('red', [7]);
-					babyArrow.animation.add('blue', [5]);
-					babyArrow.animation.add('purplel', [4]);
+					babyArrow.animation.add('green', [11]);
+					babyArrow.animation.add('red', [12]);
+					babyArrow.animation.add('blue', [10]);
+					babyArrow.animation.add('purplel', [9]);
+
+					babyArrow.animation.add('white', [13]);
+					babyArrow.animation.add('yellow', [14]);
+					babyArrow.animation.add('violet', [15]);
+					babyArrow.animation.add('black', [16]);
+					babyArrow.animation.add('dark', [17]);
+
 
 					babyArrow.setGraphicSize(Std.int(babyArrow.width * daPixelZoom * Note.pixelnoteScale));
 					babyArrow.updateHitbox();
 					babyArrow.antialiasing = false;
 
-					switch (Math.abs(i))
-					{
-						case 2:
-							babyArrow.x += Note.swagWidth * i;
-							babyArrow.animation.add('static', [2]);
-							babyArrow.animation.add('pressed', [6, 10], 12, false);
-							babyArrow.animation.add('confirm', [14, 18], 12, false);
-						case 3:
-							babyArrow.x += Note.swagWidth * i;
-							babyArrow.animation.add('static', [3]);
-							babyArrow.animation.add('pressed', [7, 11], 12, false);
-							babyArrow.animation.add('confirm', [15, 19], 24, false);
-						case 1:
-							babyArrow.x += Note.swagWidth * i;
-							babyArrow.animation.add('static', [1]);
-							babyArrow.animation.add('pressed', [5, 9], 12, false);
-							babyArrow.animation.add('confirm', [13, 17], 24, false);
-						case 0:
-							babyArrow.x += Note.swagWidth * i;
-							babyArrow.animation.add('static', [0]);
-							babyArrow.animation.add('pressed', [4, 8], 12, false);
-							babyArrow.animation.add('confirm', [12, 16], 24, false);
-						case 4:
-							babyArrow.x += Note.swagWidth * i;
-							babyArrow.animation.add('static', [2]);
-							babyArrow.animation.add('pressed', [6, 10], 12, false);
-							babyArrow.animation.add('confirm', [14, 18], 12, false);
-						case 5:
-							babyArrow.x += Note.swagWidth * i;
-							babyArrow.animation.add('static', [0]);
-							babyArrow.animation.add('pressed', [4, 8], 12, false);
-							babyArrow.animation.add('confirm', [12, 16], 24, false);
-						case 6:
-							babyArrow.x += Note.swagWidth * i;
-							babyArrow.animation.add('static', [1]);
-							babyArrow.animation.add('pressed', [5, 9], 12, false);
-							babyArrow.animation.add('confirm', [13, 17], 24, false);
-						case 7:
-							babyArrow.x += Note.swagWidth * i;
-							babyArrow.animation.add('static', [2]);
-							babyArrow.animation.add('pressed', [6, 10], 12, false);
-							babyArrow.animation.add('confirm', [14, 18], 12, false);
-						case 8:
-							babyArrow.x += Note.swagWidth * i;
-							babyArrow.animation.add('static', [3]);
-							babyArrow.animation.add('pressed', [7, 11], 12, false);
-							babyArrow.animation.add('confirm', [15, 19], 24, false);
-						
-					}
+					var numstatic:Array<Int> = [0, 1, 2, 3, 4, 5, 6, 7, 8]; //this is most tedious shit ive ever done why the fuck is this so hard
+					var startpress:Array<Int> = [9, 10, 11, 12, 13, 14, 15, 16, 17];
+					var endpress:Array<Int> = [18, 19, 20, 21, 22, 23, 24, 25, 26];
+					var startconf:Array<Int> = [27, 28, 29, 30, 31, 32, 33, 34, 35];
+					var endconf:Array<Int> = [36, 37, 38, 39, 40, 41, 42, 43, 44];
+						switch (mania)
+						{
+							case 1:
+								numstatic = [0, 2, 3, 5, 1, 8];
+								startpress = [9, 11, 12, 14, 10, 17];
+								endpress = [18, 20, 21, 23, 19, 26];
+								startconf = [27, 29, 30, 32, 28, 35];
+								endconf = [36, 38, 39, 41, 37, 44];
+
+							case 2: 
+								babyArrow.x -= Note.tooMuch;
+							case 3: 
+								numstatic = [0, 1, 4, 2, 3];
+								startpress = [9, 10, 13, 11, 12];
+								endpress = [18, 19, 22, 20, 21];
+								startconf = [27, 28, 31, 29, 30];
+								endconf = [36, 37, 40, 38, 39];
+							case 4: 
+								numstatic = [0, 2, 3, 4, 5, 1, 8];
+								startpress = [9, 11, 12, 13, 14, 10, 17];
+								endpress = [18, 20, 21, 22, 23, 19, 26];
+								startconf = [27, 29, 30, 31, 32, 28, 35];
+								endconf = [36, 38, 39, 40, 41, 37, 44];
+							case 5: 
+								numstatic = [0, 1, 2, 3, 5, 6, 7, 8];
+								startpress = [9, 10, 11, 12, 14, 15, 16, 17];
+								endpress = [18, 19, 20, 21, 23, 24, 25, 26];
+								startconf = [27, 28, 29, 30, 32, 33, 34, 35];
+								endconf = [36, 37, 38, 39, 41, 42, 43, 44];
+
+
+						}
+					babyArrow.x += Note.swagWidth * i;
+					babyArrow.animation.add('static', [numstatic[i]]);
+					babyArrow.animation.add('pressed', [startpress[i], endpress[i]], 12, false);
+					babyArrow.animation.add('confirm', [startconf[i], endconf[i]], 24, false);
+
+					/*else if (SONG.mania == 4)
+						{
+							switch (Math.abs(i))
+							{
+								case 0:
+									babyArrow.x += Note.swagWidth * i;
+									babyArrow.animation.add('static', [0]);
+									babyArrow.animation.add('pressed', [9, 18], 12, false);
+									babyArrow.animation.add('confirm', [27, 36], 24, false);
+								case 5:
+									babyArrow.x += Note.swagWidth * i;
+									babyArrow.animation.add('static', [1]);
+									babyArrow.animation.add('pressed', [10, 19], 12, false);
+									babyArrow.animation.add('confirm', [28, 37], 24, false);
+								case 1:
+									babyArrow.x += Note.swagWidth * i;
+									babyArrow.animation.add('static', [2]);
+									babyArrow.animation.add('pressed', [11, 20], 12, false);
+									babyArrow.animation.add('confirm', [29, 38], 12, false);
+								case 2:
+									babyArrow.x += Note.swagWidth * i;
+									babyArrow.animation.add('static', [3]);
+									babyArrow.animation.add('pressed', [12, 21], 12, false);
+									babyArrow.animation.add('confirm', [30, 39], 24, false);
+								case 4:
+									babyArrow.x += Note.swagWidth * i;
+									babyArrow.animation.add('static', [4]);
+									babyArrow.animation.add('pressed', [13, 22], 12, false);
+									babyArrow.animation.add('confirm', [31, 40], 12, false);
+								case 3:
+									babyArrow.x += Note.swagWidth * i;
+									babyArrow.animation.add('static', [5]);
+									babyArrow.animation.add('pressed', [14, 23], 12, false);
+									babyArrow.animation.add('confirm', [32, 41], 24, false);
+								case 6:
+									babyArrow.x += Note.swagWidth * i;
+									babyArrow.animation.add('static', [8]);
+									babyArrow.animation.add('pressed', [17, 26], 12, false);
+									babyArrow.animation.add('confirm', [35, 44], 24, false);
+								
+							}
+						}
+					else if (SONG.mania == 3)
+						{
+							switch (Math.abs(i))
+							{
+								case 0:
+									babyArrow.x += Note.swagWidth * i;
+									babyArrow.animation.add('static', [0]);
+									babyArrow.animation.add('pressed', [9, 18], 12, false);
+									babyArrow.animation.add('confirm', [27, 36], 24, false);
+								case 1:
+									babyArrow.x += Note.swagWidth * i;
+									babyArrow.animation.add('static', [1]);
+									babyArrow.animation.add('pressed', [10, 19], 12, false);
+									babyArrow.animation.add('confirm', [28, 37], 24, false);
+								case 3:
+									babyArrow.x += Note.swagWidth * i;
+									babyArrow.animation.add('static', [2]);
+									babyArrow.animation.add('pressed', [11, 20], 12, false);
+									babyArrow.animation.add('confirm', [29, 38], 12, false);
+								case 4:
+									babyArrow.x += Note.swagWidth * i;
+									babyArrow.animation.add('static', [3]);
+									babyArrow.animation.add('pressed', [12, 21], 12, false);
+									babyArrow.animation.add('confirm', [30, 39], 24, false);
+								case 2:
+									babyArrow.x += Note.swagWidth * i;
+									babyArrow.animation.add('static', [4]);
+									babyArrow.animation.add('pressed', [13, 22], 12, false);
+									babyArrow.animation.add('confirm', [31, 40], 12, false);
+							}
+						}
+					else if (SONG.mania == 5)
+						{
+							switch (Math.abs(i))
+							{
+								case 0:
+									babyArrow.x += Note.swagWidth * i;
+									babyArrow.animation.add('static', [0]);
+									babyArrow.animation.add('pressed', [9, 18], 12, false);
+									babyArrow.animation.add('confirm', [27, 36], 24, false);
+								case 1:
+									babyArrow.x += Note.swagWidth * i;
+									babyArrow.animation.add('static', [1]);
+									babyArrow.animation.add('pressed', [10, 19], 12, false);
+									babyArrow.animation.add('confirm', [28, 37], 24, false);
+								case 2:
+									babyArrow.x += Note.swagWidth * i;
+									babyArrow.animation.add('static', [2]);
+									babyArrow.animation.add('pressed', [11, 20], 12, false);
+									babyArrow.animation.add('confirm', [29, 38], 12, false);
+								case 3:
+									babyArrow.x += Note.swagWidth * i;
+									babyArrow.animation.add('static', [3]);
+									babyArrow.animation.add('pressed', [12, 21], 12, false);
+									babyArrow.animation.add('confirm', [30, 39], 24, false);
+								case 4:
+									babyArrow.x += Note.swagWidth * i;
+									babyArrow.animation.add('static', [5]);
+									babyArrow.animation.add('pressed', [14, 23], 12, false);
+									babyArrow.animation.add('confirm', [32, 41], 24, false);
+								case 5:
+									babyArrow.x += Note.swagWidth * i;
+									babyArrow.animation.add('static', [6]);
+									babyArrow.animation.add('pressed', [15, 24], 12, false);
+									babyArrow.animation.add('confirm', [33, 42], 24, false);
+								case 6:
+									babyArrow.x += Note.swagWidth * i;
+									babyArrow.animation.add('static', [7]);
+									babyArrow.animation.add('pressed', [16, 25], 12, false);
+									babyArrow.animation.add('confirm', [34, 43], 12, false);
+								case 7:
+									babyArrow.x += Note.swagWidth * i;
+									babyArrow.animation.add('static', [8]);
+									babyArrow.animation.add('pressed', [17, 26], 12, false);
+									babyArrow.animation.add('confirm', [35, 44], 24, false);
+								
+							}
+						}*/
+					
 				
 					case 'normal':
 						{
@@ -2544,7 +2735,7 @@ class PlayState extends MusicBeatState
 									// Remember = minus makes notes go up, plus makes them go down
 									if(daNote.animation.curAnim.name.endsWith('end') && daNote.prevNote != null)
 									{
-										//daNote.y += daNote.prevNote.height;
+										daNote.y += daNote.prevNote.height;
 									}
 										
 									else
@@ -2561,14 +2752,14 @@ class PlayState extends MusicBeatState
 											swagRect.height = (strumLineNotes.members[Math.floor(Math.abs(daNote.noteData))].y + Note.swagWidth / 2 - daNote.y) / daNote.scale.y;
 											swagRect.y = daNote.frameHeight - swagRect.height;
 	
-											//daNote.clipRect = swagRect;
+											daNote.clipRect = swagRect;
 										}
 									}else {
 										var swagRect = new FlxRect(0, 0, daNote.frameWidth * 2, daNote.frameHeight * 2);
 										swagRect.height = (strumLineNotes.members[Math.floor(Math.abs(daNote.noteData))].y + Note.swagWidth / 2 - daNote.y) / daNote.scale.y;
 										swagRect.y = daNote.frameHeight - swagRect.height;
 	
-										//daNote.clipRect = swagRect;
+										daNote.clipRect = swagRect;
 									}
 								}
 							}else
@@ -2591,14 +2782,14 @@ class PlayState extends MusicBeatState
 											swagRect.y = (strumLineNotes.members[Math.floor(Math.abs(daNote.noteData))].y + Note.swagWidth / 2 - daNote.y) / daNote.scale.y;
 											swagRect.height -= swagRect.y;
 	
-											//daNote.clipRect = swagRect;
+											daNote.clipRect = swagRect;
 										}
 									}else {
 										var swagRect = new FlxRect(0, 0, daNote.width / daNote.scale.x, daNote.height / daNote.scale.y);
 										swagRect.y = (strumLineNotes.members[Math.floor(Math.abs(daNote.noteData))].y + Note.swagWidth / 2 - daNote.y) / daNote.scale.y;
 										swagRect.height -= swagRect.y;
 	
-										//daNote.clipRect = swagRect;
+										daNote.clipRect = swagRect;
 									}
 								}
 							}
@@ -3331,7 +3522,23 @@ class PlayState extends MusicBeatState
 					controls.UP_R,
 					controls.RIGHT_R
 				];
-				if (SONG.mania == 1)
+				if (SONG.mania == 0)
+					{
+						holdArray = [controls.LEFT, controls.DOWN, controls.UP, controls.RIGHT];
+						pressArray = [
+							controls.LEFT_P,
+							controls.DOWN_P,
+							controls.UP_P,
+							controls.RIGHT_P
+						];
+						releaseArray = [
+							controls.LEFT_R,
+							controls.DOWN_R,
+							controls.UP_R,
+							controls.RIGHT_R
+						];
+					}
+				else if (SONG.mania == 1)
 					{
 						holdArray = [controls.L1, controls.U1, controls.R1, controls.L2, controls.D1, controls.R2];
 						pressArray = [

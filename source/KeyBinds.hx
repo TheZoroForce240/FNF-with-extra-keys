@@ -72,6 +72,7 @@ class KeyBinds
         }
         if (StringTools.contains(FlxG.save.data.rightBind,"NUMPAD"))
             FlxG.save.data.rightBind = "D";
+
         
         if(FlxG.save.data.gpupBind == null){
             FlxG.save.data.gpupBind = "DPAD_UP";

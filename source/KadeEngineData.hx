@@ -93,6 +93,9 @@ class KadeEngineData
 
 		if (FlxG.save.data.optimize == null)
 			FlxG.save.data.optimize = false;
+
+		if (FlxG.save.data.oldtimings == null)
+			FlxG.save.data.oldtimings = false;
 		
 		var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
 		

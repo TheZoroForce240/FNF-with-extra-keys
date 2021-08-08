@@ -67,28 +67,28 @@ class Note extends FlxSprite
 		{
 			swagWidth = 95 * 0.7;
 			noteScale = 0.5;
-			pixelnoteScale = 0.6;
+			pixelnoteScale = 0.7;
 			mania = 2;
 		}
 		else if (PlayState.SONG.mania == 3)
 			{
 				swagWidth = 130 * 0.7;
 				noteScale = 0.65;
-				pixelnoteScale = 0.6;
+				pixelnoteScale = 0.9;
 				mania = 3;
 			}
 		else if (PlayState.SONG.mania == 4)
 			{
 				swagWidth = 110 * 0.7;
 				noteScale = 0.58;
-				pixelnoteScale = 0.6;
+				pixelnoteScale = 0.78;
 				mania = 4;
 			}
 		else if (PlayState.SONG.mania == 5)
 			{
 				swagWidth = 100 * 0.7;
 				noteScale = 0.55;
-				pixelnoteScale = 0.6;
+				pixelnoteScale = 0.74;
 				mania = 5;
 			}
 		super();
@@ -130,24 +130,42 @@ class Note extends FlxSprite
 			case 'pixel':
 				loadGraphic(Paths.image('weeb/pixelUI/arrows-pixels','week6'), true, 17, 17);
 
-				animation.add('greenScroll', [6]);
-				animation.add('redScroll', [7]);
-				animation.add('blueScroll', [5]);
-				animation.add('purpleScroll', [4]);
+				animation.add('greenScroll', [11]);
+				animation.add('redScroll', [12]);
+				animation.add('blueScroll', [10]);
+				animation.add('purpleScroll', [9]);
+
+				animation.add('whiteScroll', [13]);
+				animation.add('yellowScroll', [14]);
+				animation.add('violetScroll', [15]);
+				animation.add('blackScroll', [16]);
+				animation.add('darkScroll', [17]);
 
 				if (isSustainNote)
 				{
 					loadGraphic(Paths.image('weeb/pixelUI/arrowEnds','week6'), true, 7, 6);
 
-					animation.add('purpleholdend', [4]);
-					animation.add('greenholdend', [6]);
-					animation.add('redholdend', [7]);
-					animation.add('blueholdend', [5]);
+					animation.add('purpleholdend', [9]);
+					animation.add('greenholdend', [11]);
+					animation.add('redholdend', [12]);
+					animation.add('blueholdend', [10]);
+
+					animation.add('whiteholdend', [13]);
+					animation.add('yellowholdend', [14]);
+					animation.add('violetholdend', [15]);
+					animation.add('blackholdend', [16]);
+					animation.add('darkholdend', [17]);
 
 					animation.add('purplehold', [0]);
 					animation.add('greenhold', [2]);
 					animation.add('redhold', [3]);
 					animation.add('bluehold', [1]);
+
+					animation.add('whitehold', [4]);
+					animation.add('yellowhold', [5]);
+					animation.add('violethold', [6]);
+					animation.add('blackhold', [7]);
+					animation.add('darkhold', [8]);
 				}
 
 				setGraphicSize(Std.int(width * PlayState.daPixelZoom * pixelnoteScale));

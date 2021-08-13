@@ -25,12 +25,17 @@ class OptionsMenu extends MusicBeatState
 	var curSelected:Int = 0;
 
 	var options:Array<OptionCategory> = [
+		new OptionCategory("Mod Specfic", [
+			new OldTimingsOption("Change between KE 1.5.4 and KE 1.4.2 Hit timings")
+		]),
 		new OptionCategory("Gameplay", [
-			new DFJKOption(controls),
-			new DownscrollOption("Change the layout of the strumline."),
 			new GhostTapOption("Ghost Tapping is when you tap a direction and it doesn't give you a miss."),
+			new GraceTmr("Turn off the Grace Timer for the real Chad Input"),
+			new DFJKOption(controls),
+			new SixKeyMenu(controls),
+			new NineKeyMenu(controls),
+			new DownscrollOption("Change the layout of the strumline."),
 			new Judgement("Customize your Hit Timings (LEFT or RIGHT)"),
-			new OldTimingsOption("Change between KE 1.5.4 and KE 1.4.2 Hit timings"),
 			#if desktop
 			new FPSCapOption("Cap your FPS"),
 			#end

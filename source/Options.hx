@@ -92,7 +92,7 @@ class DFJKOption extends Option
 
 	private override function updateDisplay():String
 	{
-		return "Key Bindings";
+		return "Key Bindings for Four Key";
 	}
 }
 
@@ -157,7 +157,7 @@ class GhostTapOption extends Option
 
 	private override function updateDisplay():String
 	{
-		return FlxG.save.data.ghost ? "Ghost Tapping" : "No Ghost Tapping";
+		return FlxG.save.data.ghost ? "Virgin Input" : "Chad Input";
 	}
 }
 
@@ -716,5 +716,69 @@ class OldTimingsOption extends Option
 	private override function updateDisplay():String
 	{
 		return "Use Old Hit Timings " + (!FlxG.save.data.oldtimings ? "off" : "on");
+	}
+}
+
+class GraceTmr extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+	public override function press():Bool
+	{
+		FlxG.save.data.gracetmr = !FlxG.save.data.gracetmr;
+		display = updateDisplay();
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return "Use Grace Timer " + (!FlxG.save.data.gracetmr ? "off" : "on");
+	}
+}
+
+class SixKeyMenu extends Option
+{
+	private var controls:Controls;
+
+	public function new(controls:Controls)
+	{
+		super();
+		this.controls = controls;
+	}
+
+	public override function press():Bool
+	{
+		OptionsMenu.instance.openSubState(new SixKeyBindMenu());
+		return false;
+	}
+
+	private override function updateDisplay():String
+	{
+		return "Key Bindings for Six Key";
+	}
+}
+
+class NineKeyMenu extends Option
+{
+	private var controls:Controls;
+
+	public function new(controls:Controls)
+	{
+		super();
+		this.controls = controls;
+	}
+
+	public override function press():Bool
+	{
+		OptionsMenu.instance.openSubState(new NineKeyBindMenu());
+		return false;
+	}
+
+	private override function updateDisplay():String
+	{
+		return "Key Bindings for Nine Key";
 	}
 }

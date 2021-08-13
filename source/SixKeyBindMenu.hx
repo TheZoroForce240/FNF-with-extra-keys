@@ -29,22 +29,24 @@ import flixel.input.FlxKeyManager;
 
 using StringTools;
 
-class KeyBindMenu extends FlxSubState
+class SixKeyBindMenu extends FlxSubState
 {
 
     var keyTextDisplay:FlxText;
     var keyWarning:FlxText;
     var warningTween:FlxTween;
-    var keyText:Array<String> = ["LEFT", "DOWN", "UP", "RIGHT"];
-    var defaultKeys:Array<String> = ["A", "S", "W", "D"];
+    var keyText:Array<String> = ["L1", "U1", "R1", "L2", "D1", "R2"];
+    var defaultKeys:Array<String> = ["S", "D", "F", "J", "K", "L"];
 
     var defaultGpKeys:Array<String> = ["DPAD_LEFT", "DPAD_DOWN", "DPAD_UP", "DPAD_RIGHT"];
     var curSelected:Int = 0;
 
-    var keys:Array<String> = [FlxG.save.data.leftBind,
-                              FlxG.save.data.downBind,
-                              FlxG.save.data.upBind,
-                              FlxG.save.data.rightBind];
+    var keys:Array<String> = [FlxG.save.data.L1Bind,
+                              FlxG.save.data.U1Bind,
+                              FlxG.save.data.R1Bind,
+                              FlxG.save.data.L2Bind,
+                              FlxG.save.data.D1Bind,
+                              FlxG.save.data.R2Bind];
     var gpKeys:Array<String> = [FlxG.save.data.gpleftBind,
                               FlxG.save.data.gpdownBind,
                               FlxG.save.data.gpupBind,
@@ -254,7 +256,7 @@ class KeyBindMenu extends FlxSubState
 
         if (KeyBinds.gamepad)
         {
-            for(i in 0...4){
+            for(i in 0...6){
 
                 var textStart = (i == curSelected) ? "> " : "  ";
                 trace(gpKeys[i]);
@@ -264,7 +266,7 @@ class KeyBindMenu extends FlxSubState
         }
         else
         {
-            for(i in 0...4){
+            for(i in 0...6){
 
                 var textStart = (i == curSelected) ? "> " : "  ";
                 keyTextDisplay.text += textStart + keyText[i] + ": " + ((keys[i] != keyText[i]) ? (keys[i] + " / ") : "" ) + keyText[i] + " ARROW\n";
@@ -276,18 +278,18 @@ class KeyBindMenu extends FlxSubState
 
     }
 
-    function save(){
-
-        FlxG.save.data.upBind = keys[2];
-        FlxG.save.data.downBind = keys[1];
-        FlxG.save.data.leftBind = keys[0];
-        FlxG.save.data.rightBind = keys[3];
-
-        
+    function save(){       
         FlxG.save.data.gpupBind = gpKeys[2];
         FlxG.save.data.gpdownBind = gpKeys[1];
         FlxG.save.data.gpleftBind = gpKeys[0];
         FlxG.save.data.gprightBind = gpKeys[3];
+
+        FlxG.save.data.L1Bind = keys[0];
+        FlxG.save.data.U1Bind = keys[1];
+        FlxG.save.data.R1Bind = keys[2];
+        FlxG.save.data.L2Bind = keys[3];
+        FlxG.save.data.D1Bind = keys[4];
+        FlxG.save.data.R2Bind = keys[5];
 
         FlxG.save.flush();
 
@@ -297,7 +299,7 @@ class KeyBindMenu extends FlxSubState
 
     function reset(){
 
-        for(i in 0...4){
+        for(i in 0...6){
             keys[i] = defaultKeys[i];
         }
         quit();
@@ -396,9 +398,9 @@ class KeyBindMenu extends FlxSubState
     {
         curSelected += _amount;
                 
-        if (curSelected > 3)
+        if (curSelected > 5)
             curSelected = 0;
         if (curSelected < 0)
-            curSelected = 3;
+            curSelected = 5;
     }
 }

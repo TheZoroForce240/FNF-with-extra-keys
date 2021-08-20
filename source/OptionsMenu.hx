@@ -40,6 +40,7 @@ class OptionsMenu extends MusicBeatState
 			new FPSCapOption("Cap your FPS"),
 			#end
 			new ScrollSpeedOption("Change your scroll speed (1 = Chart dependent)"),
+			new InstantRespawn("Toggle if you instantly respawn after dying."),
 			new AccuracyDOption("Change how accuracy is calculated. (Accurate = Simple, Complex = Milisecond Based)"),
 			new ResetButtonOption("Toggle pressing R to gameover."),
 			// new OffsetMenu("Get a note offset based off of your inputs!"),
@@ -60,14 +61,22 @@ class OptionsMenu extends MusicBeatState
 		new OptionCategory("Misc", [
 			#if desktop
 			new FPSOption("Toggle the FPS Counter"),
-			new ReplayOption("View replays"),
 			#end
 			new FlashingLightsOption("Toggle flashing lights that can cause epileptic seizures and strain."),
 			new WatermarkOption("Enable and disable all watermarks from the engine."),
+			new AntialiasingOption("Toggle antialiasing, improving graphics quality at a slight performance penalty."),
 			new ScoreScreen("Show the score screen after the end of a song"),
 			new ShowInput("Display every single input in the score screen."),
 			new Optimization("No backgrounds, no characters, centered notes, no player 2."),
+			new GraphicLoading("On startup, cache every character. Significantly decrease load times. (HIGH MEMORY)"),
 			new BotPlay("Showcase your charts and mods with autoplay."),
+		]),
+		new OptionCategory("Saves and Data", [
+			#if desktop
+			new ReplayOption("View saved song replays."),
+			#end
+			new ResetScoreOption("Reset your score on all songs and weeks. This is irreversible!"),
+			new ResetSettings("Reset ALL your settings. This is irreversible!")
 		])
 		
 	];

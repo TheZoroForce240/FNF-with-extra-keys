@@ -92,6 +92,8 @@ class ChartingState extends MusicBeatState
 	private var lastNote:Note;
 	var claps:Array<Note> = [];
 
+	var selectedType:Int = 0;
+
 	override function create()
 	{
 		curSection = lastSection;
@@ -471,8 +473,14 @@ class ChartingState extends MusicBeatState
 
 	var stepperSusLength:FlxUINumericStepper;
 
+	var stepperNoteTypes:FlxUINumericStepper;
+
+	var noteTypes:Array<String> = ['Normal', 'Fire', 'Death', 'Warning', 'Angel', 'Alt Anim', 'Bob', 'Glitch'];
+	var typeChangeLabel:FlxText;
+
 	function addNoteUI():Void
 	{
+
 		var tab_group_note = new FlxUI(null, UI_box);
 		tab_group_note.name = 'Note';
 
@@ -480,9 +488,17 @@ class ChartingState extends MusicBeatState
 		stepperSusLength.value = 0;
 		stepperSusLength.name = 'note_susLength';
 
+		stepperNoteTypes = new FlxUINumericStepper(100, 150, 1, selectedType, 0, noteTypes.length - 1, 0);
+		stepperNoteTypes.value = selectedType;
+		stepperNoteTypes.name = 'note_types';
+
+		typeChangeLabel = new FlxText(100, 170, 64, noteTypes[selectedType] + " notes");
+
 		var applyLength:FlxButton = new FlxButton(100, 10, 'Apply');
 
 		var ammolabel = new FlxText(10,35,64,'Amount of Keys');
+
+		var typelabel = new FlxText(100,130,64,'Note Types');
 
 		var m_check = new FlxUICheckBox(10, 165, null, null, "6", 100);
 		m_check.checked = (_song.mania == 1);
@@ -589,6 +605,9 @@ class ChartingState extends MusicBeatState
 		tab_group_note.add(stepperSusLength);
 		tab_group_note.add(applyLength);
 		tab_group_note.add(ammolabel);
+		tab_group_note.add(stepperNoteTypes);
+		tab_group_note.add(typeChangeLabel);
+		tab_group_note.add(typelabel);
 		tab_group_note.add(m_check0);
 		tab_group_note.add(m_check);
 		tab_group_note.add(m_check2);
@@ -720,6 +739,12 @@ class ChartingState extends MusicBeatState
 					nums.value = 0.1;
 				FlxG.sound.music.volume = nums.value;
 			}
+			else if (wname == 'note_type')
+				{
+					selectedType = Std.int(nums.value);
+					
+					//updateGrid();
+				}
 		}
 
 		// FlxG.log.add(id + " WEED " + sender + " WEED " + data + " WEED " + params);
@@ -756,6 +781,7 @@ class ChartingState extends MusicBeatState
 
 	override function update(elapsed:Float)
 	{
+		typeChangeLabel.text = noteTypes[Std.int(stepperNoteTypes.value)] + ' notes';
 		curStep = recalculateSteps();
 		if (_song.mania == 2 && gridBG.width != S_GRID_SIZE * 18)
 		{
@@ -1263,6 +1289,10 @@ class ChartingState extends MusicBeatState
 					var thetext:String = Std.string(daType);
 					var typeText:FlxText = new FlxText(note.x, note.y, 0, thetext, 25, true);
 					typeText.color = FlxColor.fromRGB(255,0,0);
+					if (daType == 5)
+						{
+							typeText.text = "Alt";
+						}
 					curRenderedTypes.add(typeText);
 				}
 
@@ -1410,12 +1440,8 @@ class ChartingState extends MusicBeatState
 		var noteData = Math.floor(FlxG.mouse.x / GRID_SIZE);
 		var noteSus = 0;
 		var noteType = 0;
-		if (FlxG.keys.pressed.ALT) //zzz
-			noteType = 1;
-		if (FlxG.keys.pressed.Z)
-			noteType = 2;
-		if (FlxG.keys.pressed.X)
-			noteType = 3;
+		noteType = Std.int(stepperNoteTypes.value);
+
 
 
 		if (_song.mania == 2 || _song.mania == 5)

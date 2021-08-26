@@ -1774,7 +1774,8 @@ class PlayState extends MusicBeatState
 					if (i.noteData == data)
 						dataNotes.push(i);
 
-				if (FlxG.save.data.gthm && controls.GTSTRUM)
+				
+				if (!FlxG.save.data.gthm)
 				{
 					if (dataNotes.length != 0)
 						{
@@ -1817,69 +1818,17 @@ class PlayState extends MusicBeatState
 							ana.hit = true;
 							ana.hitJudge = Ratings.CalculateRating(noteDiff, Math.floor((PlayStateChangeables.safeFrames / 60) * 1000));
 							ana.nearestNote = [coolNote.strumTime, coolNote.noteData, coolNote.sustainLength];
+						
 						}
-				}
-				else if (!FlxG.save.data.gthm)
-				{
-					if (dataNotes.length != 0)
+					else if (!FlxG.save.data.ghost && songStarted && !grace)
 						{
-							var coolNote = null;
-				
-							for (i in dataNotes)
-								if (!i.isSustainNote)
-								{
-									coolNote = i;
-									break;
-								}
-				
-							if (coolNote == null) // Note is null, which means it's probably a sustain note. Update will handle this (HOPEFULLY???)
-							{
-								return;
-							}
-				
-							if (dataNotes.length > 1) // stacked notes or really close ones
-							{
-								for (i in 0...dataNotes.length)
-								{
-									if (i == 0) // skip the first note
-										continue;
-				
-									var note = dataNotes[i];
-				
-									if (!note.isSustainNote && (note.strumTime - coolNote.strumTime) < 2)
-									{
-										trace('found a stacked/really close note ' + (note.strumTime - coolNote.strumTime));
-										// just fuckin remove it since it's a stacked note and shouldn't be there
-										note.kill();
-										notes.remove(note, true);
-										note.destroy();
-									}
-								}
-							}
-				
-							goodNoteHit(coolNote);
-							var noteDiff:Float = -(coolNote.strumTime - Conductor.songPosition);
-							ana.hit = true;
-							ana.hitJudge = Ratings.CalculateRating(noteDiff, Math.floor((PlayStateChangeables.safeFrames / 60) * 1000));
-							ana.nearestNote = [coolNote.strumTime, coolNote.noteData, coolNote.sustainLength];
+							noteMiss(data, null);
+							ana.hit = false;
+							ana.hitJudge = "shit";
+							ana.nearestNote = [];
+							//health -= 0.20;
 						}
 				}
-				else if (!FlxG.save.data.ghost && songStarted && !grace && !FlxG.save.data.gthm)
-					{
-						noteMiss(data, null);
-						ana.hit = false;
-						ana.hitJudge = "shit";
-						ana.nearestNote = [];
-						//health -= 0.20;
-					}
-				else if (songStarted && !grace && FlxG.save.data.gthm && controls.GTSTRUM)
-					{
-						noteMiss(data, null);
-						ana.hit = false;
-						ana.hitJudge = "shit";
-						ana.nearestNote = [];
-						//health -= 0.20;
-					}
 		
 	}
 
@@ -4478,7 +4427,7 @@ class PlayState extends MusicBeatState
 							goodNoteHit(possibleNotes[0]);
 						else if (possibleNotes.length > 0)
 						{
-							if (!FlxG.save.data.ghost && !FlxG.save.data.gthm)
+							if (!FlxG.save.data.ghost)
 								{
 									for (i in 0...pressArray.length)
 										{ // if a direction is hit that shouldn't be
@@ -4515,7 +4464,7 @@ class PlayState extends MusicBeatState
 								if (boyfriend.animation.curAnim.name.startsWith('sing') && !boyfriend.animation.curAnim.name.endsWith('miss') && (boyfriend.animation.curAnim.curFrame >= 10 || boyfriend.animation.curAnim.finished))
 									boyfriend.playAnim('idle');
 							}
-						else if (!FlxG.save.data.ghost && !FlxG.save.data.gthm)
+						else if (!FlxG.save.data.ghost)
 							{
 								for (shit in 0...keyAmmo[mania])
 									if (pressArray[shit])

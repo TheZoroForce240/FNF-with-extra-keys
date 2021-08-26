@@ -39,6 +39,7 @@ enum abstract Action(String) to String from String
 	var PAUSE = "pause";
 	var RESET = "reset";
 	var CHEAT = "cheat";
+	var GTSTRUM = "gtstrum";
 
 	var L1 = "l1";
 	var U1 = "u";
@@ -115,6 +116,7 @@ abstract Action(String) to String from String
 	var PAUSE = "pause";
 	var RESET = "reset";
 	var CHEAT = "cheat";
+	var GTSTRUM = "gtstrum";
 
 	var L1 = "l1";
 	var U1 = "u";
@@ -193,6 +195,7 @@ enum Control
 	BACK;
 	PAUSE;
 	CHEAT;
+	GTSTRUM;
 	L1;
 	U1;
 	R1;
@@ -244,6 +247,7 @@ class Controls extends FlxActionSet
 	var _pause = new FlxActionDigital(Action.PAUSE);
 	var _reset = new FlxActionDigital(Action.RESET);
 	var _cheat = new FlxActionDigital(Action.CHEAT);
+	var _gtstrum = new FlxActionDigital(Action.GTSTRUM);
 
 	var _l1 = new FlxActionDigital(Action.L1);
 	var _l1P = new FlxActionDigital(Action.L1_P);
@@ -486,7 +490,7 @@ class Controls extends FlxActionSet
 		return _r2R.check();
 
 
-
+	public var GTSTRUM(get, never):Bool;
 
 	public var N0(get, never):Bool;
 	public var N1(get, never):Bool;
@@ -517,6 +521,8 @@ class Controls extends FlxActionSet
 	public var N6_R(get, never):Bool;
 	public var N7_R(get, never):Bool;
 	public var N8_R(get, never):Bool;
+
+	inline function get_GTSTRUM() return _gtstrum.check();
 
 	inline function get_N0() return _n0.check();
 	inline function get_N1() return _n1.check();
@@ -572,6 +578,7 @@ class Controls extends FlxActionSet
 		add(_pause);
 		add(_reset);
 		add(_cheat);
+		add(_gtstrum);
 
 		add(_l1);
 		add(_l1P);
@@ -651,6 +658,7 @@ class Controls extends FlxActionSet
 		add(_pause);
 		add(_reset);
 		add(_cheat);
+		add(_gtstrum);
 
 
 
@@ -762,6 +770,7 @@ class Controls extends FlxActionSet
 			case PAUSE: _pause;
 			case RESET: _reset;
 			case CHEAT: _cheat;
+			case GTSTRUM: _gtstrum;
 
 			case L1: _l1;
 			case D1: _d;
@@ -826,6 +835,8 @@ class Controls extends FlxActionSet
 				func(_reset, JUST_PRESSED);
 			case CHEAT:
 				func(_cheat, JUST_PRESSED);
+			case GTSTRUM:
+				func(_gtstrum, JUST_PRESSED);
 
 			case L1:
 				func(_l1, PRESSED);
@@ -1131,6 +1142,7 @@ class Controls extends FlxActionSet
 		inline bindKeys(Control.BACK, [BACKSPACE, ESCAPE]);
 		inline bindKeys(Control.PAUSE, [ENTER, ESCAPE]);
 		inline bindKeys(Control.RESET, [FlxKey.fromString(FlxG.save.data.killBind)]);
+		inline bindKeys(Control.GTSTRUM, [SPACE]);
 
 		inline bindKeys(Control.N0, [FlxKey.fromString(FlxG.save.data.N0Bind)]);
 		inline bindKeys(Control.N1, [FlxKey.fromString(FlxG.save.data.N1Bind)]);

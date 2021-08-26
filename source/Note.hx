@@ -65,7 +65,7 @@ class Note extends FlxSprite
 	public var parent:Note = null;
 	public var spotInLine:Int = 0;
 	public var sustainActive:Bool = true;
-	public var noteColors:Array<String> = ['purple', 'blue', 'green', 'red', 'white', 'yellow', 'violet', 'black', 'dark'];
+	public var noteColors:Array<String> = ['purple', 'blue', 'green', 'red', 'white', 'yellow', 'violet', 'black', 'dark', 'darkred', 'orange'];
 
 	public var children:Array<Note> = [];
 
@@ -164,6 +164,9 @@ class Note extends FlxSprite
 		alt = noteType == 5;
 		bob = noteType == 6;
 		glitch = noteType == 7;
+
+		if (FlxG.save.data.noteColor != 'darkred' && FlxG.save.data.noteColor != 'black' && FlxG.save.data.noteColor != 'orange')
+			FlxG.save.data.noteColor = 'darkred';
 
 		var daStage:String = PlayState.curStage;
 
@@ -301,72 +304,61 @@ class Note extends FlxSprite
 				setGraphicSize(Std.int(width * PlayState.daPixelZoom * pixelnoteScale));
 				updateHitbox();
 			default:
-				frames = Paths.getSparrowAtlas('noteassets/shaggy/NOTE_assets');
-				for (i in 0...9)
+				frames = Paths.getSparrowAtlas('noteassets/NOTE_assets');
+				for (i in 0...11)
 					{
 						animation.addByPrefix(noteColors[i] + 'Scroll', noteColors[i] + '0'); // Normal notes
 						animation.addByPrefix(noteColors[i] + 'hold', noteColors[i] + ' hold piece'); // Hold
 						animation.addByPrefix(noteColors[i] + 'holdend', noteColors[i] + ' hold end'); // Tails
 					}	
-				if (burning)
+				if (burning || death || warning || angel || bob || glitch)
 					{
-						frames = Paths.getSparrowAtlas('noteassets/firenotes/NOTE_assets');
-						for (i in 0...9)
-							{
-								animation.addByPrefix(noteColors[i] + 'Scroll', noteColors[i] + '0'); // Normal notes
-								animation.addByPrefix(noteColors[i] + 'hold', noteColors[i] + ' hold piece'); // Hold
-								animation.addByPrefix(noteColors[i] + 'holdend', noteColors[i] + ' hold end'); // Tails
-							}
-					}
-				else if (death)
-					{
-						frames = Paths.getSparrowAtlas('noteassets/halo/NOTE_assets');
-						for (i in 0...9)
-							{
-								animation.addByPrefix(noteColors[i] + 'Scroll', noteColors[i] + '0'); // Normal notes
-								animation.addByPrefix(noteColors[i] + 'hold', noteColors[i] + ' hold piece'); // Hold
-								animation.addByPrefix(noteColors[i] + 'holdend', noteColors[i] + ' hold end'); // Tails
-							}
-					}
-				else if (warning)
-					{
-						frames = Paths.getSparrowAtlas('noteassets/warning/NOTE_assets');
-						for (i in 0...9)
-							{
-								animation.addByPrefix(noteColors[i] + 'Scroll', noteColors[i] + '0'); // Normal notes
-								animation.addByPrefix(noteColors[i] + 'hold', noteColors[i] + ' hold piece'); // Hold
-								animation.addByPrefix(noteColors[i] + 'holdend', noteColors[i] + ' hold end'); // Tails
-							}
-					}
-				else if (angel)
-					{
-						frames = Paths.getSparrowAtlas('noteassets/angel/NOTE_assets');
-						for (i in 0...9)
-							{
-								animation.addByPrefix(noteColors[i] + 'Scroll', noteColors[i] + '0'); // Normal notes
-								animation.addByPrefix(noteColors[i] + 'hold', noteColors[i] + ' hold piece'); // Hold
-								animation.addByPrefix(noteColors[i] + 'holdend', noteColors[i] + ' hold end'); // Tails
-							}
-					}
-				else if (bob)
-					{
-						frames = Paths.getSparrowAtlas('noteassets/bob/NOTE_assets');
-						for (i in 0...9)
-							{
-								animation.addByPrefix(noteColors[i] + 'Scroll', noteColors[i] + '0'); // Normal notes
-								animation.addByPrefix(noteColors[i] + 'hold', noteColors[i] + ' hold piece'); // Hold
-								animation.addByPrefix(noteColors[i] + 'holdend', noteColors[i] + ' hold end'); // Tails
-							}
-					}
-				else if (glitch)
-					{
-						frames = Paths.getSparrowAtlas('noteassets/glitch/NOTE_assets');
-						for (i in 0...9)
-							{
-								animation.addByPrefix(noteColors[i] + 'Scroll', noteColors[i] + '0'); // Normal notes
-								animation.addByPrefix(noteColors[i] + 'hold', noteColors[i] + ' hold piece'); // Hold
-								animation.addByPrefix(noteColors[i] + 'holdend', noteColors[i] + ' hold end'); // Tails
-							}
+						frames = Paths.getSparrowAtlas('noteassets/notetypes/NOTE_types');
+						switch(noteType)
+						{
+							case 1: 
+								for (i in 0...11)
+									{
+										animation.addByPrefix(noteColors[i] + 'Scroll', 'fire ' + noteColors[i] + '0'); // Normal notes
+										animation.addByPrefix(noteColors[i] + 'hold', 'fire hold piece'); // Hold
+										animation.addByPrefix(noteColors[i] + 'holdend', 'fire hold end'); // Tails
+									}
+							case 2: 
+								for (i in 0...11)
+									{
+										animation.addByPrefix(noteColors[i] + 'Scroll', 'halo ' + noteColors[i] + '0'); // Normal notes
+										animation.addByPrefix(noteColors[i] + 'hold', 'halo hold piece'); // Hold
+										animation.addByPrefix(noteColors[i] + 'holdend', 'halo hold end'); // Tails
+									}
+							case 3: 
+								for (i in 0...11)
+									{
+										animation.addByPrefix(noteColors[i] + 'Scroll', 'warning ' + noteColors[i] + '0'); // Normal notes
+										animation.addByPrefix(noteColors[i] + 'hold', 'warning hold piece'); // Hold
+										animation.addByPrefix(noteColors[i] + 'holdend', 'warning hold end'); // Tails
+									}
+							case 4: 
+								for (i in 0...11)
+									{
+										animation.addByPrefix(noteColors[i] + 'Scroll', 'angel ' + noteColors[i] + '0'); // Normal notes
+										animation.addByPrefix(noteColors[i] + 'hold', 'angel hold piece'); // Hold
+										animation.addByPrefix(noteColors[i] + 'holdend', 'angel hold end'); // Tails
+									}
+							case 6: 
+								for (i in 0...11)
+									{
+										animation.addByPrefix(noteColors[i] + 'Scroll', 'bob ' + noteColors[i] + '0'); // Normal notes
+										animation.addByPrefix(noteColors[i] + 'hold', 'bob hold piece'); // Hold
+										animation.addByPrefix(noteColors[i] + 'holdend', 'bob hold end'); // Tails
+									}
+							case 7:
+								for (i in 0...11)
+									{
+										animation.addByPrefix(noteColors[i] + 'Scroll', 'glitch ' + noteColors[i] + '0'); // Normal notes
+										animation.addByPrefix(noteColors[i] + 'hold', 'glitch hold piece'); // Hold
+										animation.addByPrefix(noteColors[i] + 'holdend', 'glitch hold end'); // Tails
+									}
+						}
 					}
 				setGraphicSize(Std.int(width * noteScale));
 				updateHitbox();
@@ -378,13 +370,15 @@ class Note extends FlxSprite
 			case 1: 
 				frameN = ['purple', 'green', 'red', 'yellow', 'blue', 'dark'];
 			case 2: 
-				frameN = ['purple', 'blue', 'green', 'red', 'white', 'yellow', 'violet', 'black', 'dark'];
+				frameN = ['purple', 'blue', 'green', 'red', 'white', 'yellow', 'violet', FlxG.save.data.noteColor, 'dark'];
 			case 3: 
 				frameN = ['purple', 'blue', 'white', 'green', 'red'];
+				if (FlxG.save.data.gthc)
+					frameN = ['green', 'red', 'yellow', 'dark', 'orange'];
 			case 4: 
 				frameN = ['purple', 'green', 'red', 'white', 'yellow', 'blue', 'dark'];
 			case 5: 
-				frameN = ['purple', 'blue', 'green', 'red', 'yellow', 'violet', 'black', 'dark'];
+				frameN = ['purple', 'blue', 'green', 'red', 'yellow', 'violet', FlxG.save.data.noteColor, 'dark'];
 			case 6: 
 				frameN = ['white'];
 			case 7: 
@@ -443,6 +437,97 @@ class Note extends FlxSprite
 				// prevNote.setGraphicSize();
 			}
 		}
+	}
+
+
+	public function maniaSwitch(newMania:Int) //copy pasted shit so it works
+	{
+		swagWidth = 160 * 0.7; //factor not the same as noteScale
+		noteScale = 0.7;
+		pixelnoteScale = 1;
+		mania = 0;
+		if (newMania == 1)
+		{
+			swagWidth = 120 * 0.7;
+			noteScale = 0.6;
+			pixelnoteScale = 0.83;
+			mania = 1;
+		}
+		else if (newMania == 2)
+		{
+			swagWidth = 95 * 0.7;
+			noteScale = 0.5;
+			pixelnoteScale = 0.7;
+			mania = 2;
+		}
+		else if (newMania == 3)
+			{
+				swagWidth = 130 * 0.7;
+				noteScale = 0.65;
+				pixelnoteScale = 0.9;
+				mania = 3;
+			}
+		else if (newMania == 4)
+			{
+				swagWidth = 110 * 0.7;
+				noteScale = 0.58;
+				pixelnoteScale = 0.78;
+				mania = 4;
+			}
+		else if (newMania == 5)
+			{
+				swagWidth = 100 * 0.7;
+				noteScale = 0.55;
+				pixelnoteScale = 0.74;
+				mania = 5;
+			}
+
+		else if (newMania == 6)
+			{
+				swagWidth = 200 * 0.7;
+				noteScale = 0.7;
+				pixelnoteScale = 1;
+				mania = 6;
+			}
+		else if (newMania == 7)
+			{
+				swagWidth = 180 * 0.7;
+				noteScale = 0.7;
+				pixelnoteScale = 1;
+				mania = 7;
+			}
+		else if (newMania == 8)
+			{
+				swagWidth = 170 * 0.7;
+				noteScale = 0.7;
+				pixelnoteScale = 1;
+				mania = 8;
+			}
+
+			var frameN:Array<String> = ['purple', 'blue', 'green', 'red'];
+			switch (mania)
+			{
+				case 1: 
+					frameN = ['purple', 'green', 'red', 'yellow', 'blue', 'dark'];
+				case 2: 
+					frameN = ['purple', 'blue', 'green', 'red', 'white', 'yellow', 'violet', 'black', 'dark'];
+				case 3: 
+					frameN = ['purple', 'blue', 'white', 'green', 'red'];
+				case 4: 
+					frameN = ['purple', 'green', 'red', 'white', 'yellow', 'blue', 'dark'];
+				case 5: 
+					frameN = ['purple', 'blue', 'green', 'red', 'yellow', 'violet', 'black', 'dark'];
+				case 6: 
+					frameN = ['white'];
+				case 7: 
+					frameN = ['purple', 'red'];
+				case 8: 
+					frameN = ['purple', 'white', 'red'];
+	
+			}
+	
+			//x += swagWidth * noteData;
+			animation.play(frameN[noteData] + 'Scroll');
 	}
 
 	override function update(elapsed:Float)

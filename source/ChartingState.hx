@@ -475,6 +475,13 @@ class ChartingState extends MusicBeatState
 
 	var stepperNoteTypes:FlxUINumericStepper;
 
+	var stepperGlobalHealthDrain:FlxUINumericStepper;
+	var stepperHealthDrain:FlxUINumericStepper;
+	var stepperFireNote:FlxUINumericStepper;
+	var stepperDeathNote:FlxUINumericStepper;
+	var stepperWarningNote:FlxUINumericStepper;
+	var stepperGlitchNote:FlxUINumericStepper;
+
 	var noteTypes:Array<String> = ['Normal', 'Fire', 'Death', 'Warning', 'Angel', 'Alt Anim', 'Bob', 'Glitch'];
 	var typeChangeLabel:FlxText;
 
@@ -488,17 +495,62 @@ class ChartingState extends MusicBeatState
 		stepperSusLength.value = 0;
 		stepperSusLength.name = 'note_susLength';
 
-		stepperNoteTypes = new FlxUINumericStepper(100, 150, 1, selectedType, 0, noteTypes.length - 1, 0);
+		stepperNoteTypes = new FlxUINumericStepper(100, 55, 1, selectedType, 0, noteTypes.length - 1, 0);
 		stepperNoteTypes.value = selectedType;
 		stepperNoteTypes.name = 'note_types';
 
-		typeChangeLabel = new FlxText(100, 170, 64, noteTypes[selectedType] + " notes");
+		typeChangeLabel = new FlxText(100, 75, 64, noteTypes[selectedType] + " notes");
 
 		var applyLength:FlxButton = new FlxButton(100, 10, 'Apply');
 
 		var ammolabel = new FlxText(10,35,64,'Amount of Keys');
 
-		var typelabel = new FlxText(100,130,64,'Note Types');
+		var typelabel = new FlxText(100,35,64,'Note Types');
+
+		/*var resetValues:FlxButton = new FlxButton(200, 235, 'Reset Values');
+
+		var valuelabel = new FlxText(100,235,64,'Note Values');
+
+		var drainlabel = new FlxText(10,245,64,'Global Health Drain');
+
+		stepperGlobalHealthDrain = new FlxUINumericStepper(10, 255, 0.01, _song.noteValues[0], 0, 0.1, 0);
+		stepperGlobalHealthDrain.value = _song.noteValues[0];
+		stepperGlobalHealthDrain.name = 'global_health_drain';
+
+		var noteDrainlabel = new FlxText(10,265,64,'Health Drain Note');
+
+		stepperHealthDrain = new FlxUINumericStepper(10, 275, 0.01, _song.noteValues[1], 0.01, 0.1, 0);
+		stepperHealthDrain.value = _song.noteValues[1];
+		stepperHealthDrain.name = 'health_drain';
+
+		var fireNotelabel = new FlxText(10,285,64,'Fire Note');
+
+		stepperFireNote = new FlxUINumericStepper(10, 295, 0.05, _song.noteValues[2], 0.05, 1, 0);
+		stepperFireNote.value = _song.noteValues[2];
+		stepperFireNote.name = 'fire_note';
+
+
+		var deathlabel = new FlxText(100,245,64,'Death Notes');
+
+		stepperDeathNote = new FlxUINumericStepper(100, 255, 0.1, _song.noteValues[3], 0.1, 4, 0);
+		stepperDeathNote.value = _song.noteValues[3];
+		stepperDeathNote.name = 'death_note';
+
+		var warninglabel = new FlxText(100,265,64,'Warning Note');
+
+		stepperWarningNote = new FlxUINumericStepper(100, 275, 0.1, _song.noteValues[4], 0.1, 4, 0);
+		stepperWarningNote.value = _song.noteValues[4];
+		stepperWarningNote.name = 'warning_note';
+
+		var glitchNotelabel = new FlxText(100,285,64,'Bob/Glitch Note');
+
+		stepperGlitchNote = new FlxUINumericStepper(100, 295, 0.0005, _song.noteValues[5], 0.0005, 0.0075, 0);
+		stepperGlitchNote.value = _song.noteValues[5];
+		stepperGlitchNote.name = 'glitch_note';*/
+
+
+
+
 
 		var m_check = new FlxUICheckBox(10, 165, null, null, "6", 100);
 		m_check.checked = (_song.mania == 1);
@@ -604,10 +656,24 @@ class ChartingState extends MusicBeatState
 
 		tab_group_note.add(stepperSusLength);
 		tab_group_note.add(applyLength);
+		//tab_group_note.add(resetValues);
 		tab_group_note.add(ammolabel);
 		tab_group_note.add(stepperNoteTypes);
 		tab_group_note.add(typeChangeLabel);
 		tab_group_note.add(typelabel);
+		/*tab_group_note.add(valuelabel);
+		tab_group_note.add(drainlabel);
+		tab_group_note.add(stepperGlobalHealthDrain);
+		tab_group_note.add(noteDrainlabel);
+		tab_group_note.add(stepperHealthDrain);
+		tab_group_note.add(fireNotelabel);
+		tab_group_note.add(stepperFireNote);
+		tab_group_note.add(deathlabel);
+		tab_group_note.add(stepperDeathNote);
+		tab_group_note.add(warninglabel);
+		tab_group_note.add(stepperWarningNote);
+		tab_group_note.add(glitchNotelabel);
+		tab_group_note.add(stepperGlitchNote);*/
 		tab_group_note.add(m_check0);
 		tab_group_note.add(m_check);
 		tab_group_note.add(m_check2);
@@ -745,6 +811,30 @@ class ChartingState extends MusicBeatState
 					
 					//updateGrid();
 				}
+			/*else if (wname == 'global_health_drain')
+				{
+					_song.noteValues[0] = nums.value;
+				}
+			else if (wname == 'health_drain')
+				{
+					_song.noteValues[1] = nums.value;
+				}
+			else if (wname == 'fire_note')
+				{
+					_song.noteValues[2] = nums.value;
+				}
+			else if (wname == 'death_note')
+				{
+					_song.noteValues[3] = nums.value;
+				}
+			else if (wname == 'warning_note')
+				{
+					_song.noteValues[4] = nums.value;
+				}
+			else if (wname == 'glitch_note')
+				{
+					_song.noteValues[5] = nums.value;
+				}*/
 		}
 
 		// FlxG.log.add(id + " WEED " + sender + " WEED " + data + " WEED " + params);
@@ -1360,6 +1450,13 @@ class ChartingState extends MusicBeatState
 
 		updateGrid();
 	}
+
+	/*function ResetNoteValues():Void
+		{
+			_song.noteValues = [0, 0.01, 0.45, 2.2, 1, 0.005];
+
+			updateNoteUI();
+		}*/
 
 	function clearSong():Void
 	{

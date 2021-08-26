@@ -112,8 +112,20 @@ class KadeEngineData
 		if (FlxG.save.data.gracetmr == null)
 			FlxG.save.data.gracetmr = true;
 
+		if (FlxG.save.data.noteSplash == null)
+			FlxG.save.data.noteSplash = true;
+
 		if (FlxG.save.data.zoom == null)
 			FlxG.save.data.zoom = 1;
+
+		if (FlxG.save.data.noteColor == null)
+			FlxG.save.data.noteColor = "darkred";
+
+		if (FlxG.save.data.gthc == null)
+			FlxG.save.data.gthc = false;
+
+		if (FlxG.save.data.gthm == null)
+			FlxG.save.data.gthm = false;
 		
 		var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
 		

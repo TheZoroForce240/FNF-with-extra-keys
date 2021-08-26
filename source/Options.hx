@@ -970,3 +970,90 @@ class ResetSettings extends Option
 		return confirm ? "Confirm Settings Reset" : "Reset Settings";
 	}
 }
+
+class NoteSplashOption extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+	public override function press():Bool
+	{
+		FlxG.save.data.noteSplash = !FlxG.save.data.noteSplash;
+		display = updateDisplay();
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return "Note Splash: " + (!FlxG.save.data.noteSplash ? "off" : "on");
+	}
+}
+
+
+class NoteColorOption extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+	public override function press():Bool
+	{
+		if (FlxG.save.data.noteColor == 'darkred')
+			FlxG.save.data.noteColor = 'orange';
+		else if (FlxG.save.data.noteColor == 'orange')
+			FlxG.save.data.noteColor = 'black';
+		else if (FlxG.save.data.noteColor == 'black')
+			FlxG.save.data.noteColor = 'darkred';
+		else 
+			FlxG.save.data.noteColor = 'darkred';
+
+		display = updateDisplay();
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return "Alt Note Color: " + FlxG.save.data.noteColor;
+	}
+}
+class GTHColorsOption extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+	public override function press():Bool
+	{
+		FlxG.save.data.gthc = !FlxG.save.data.gthc;
+		display = updateDisplay();
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return "Use Guitar Hero Colors: " + (!FlxG.save.data.gthc ? "off" : "on");
+	}
+}
+class GTHModeOption extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+	public override function press():Bool
+	{
+		FlxG.save.data.gthm = !FlxG.save.data.gthm;
+		display = updateDisplay();
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return "Use Guitar Hero Input: " + (!FlxG.save.data.gthm ? "off" : "on");
+	}
+}

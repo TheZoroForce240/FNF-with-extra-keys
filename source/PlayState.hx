@@ -2107,6 +2107,8 @@ class PlayState extends MusicBeatState
 					babyArrow.animation.add('yellow', [14]);
 					babyArrow.animation.add('violet', [15]);
 					babyArrow.animation.add('black', [16]);
+					babyArrow.animation.add('darkred', [16]);
+					babyArrow.animation.add('orange', [16]);
 					babyArrow.animation.add('dark', [17]);
 
 

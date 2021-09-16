@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="arrow.png"><SubTexture name="arrow LEFT0000" x="0" y="0" width="164" height="164" frameX="0" frameY="0" frameWidth="164" frameHeight="164" />
+<SubTexture name="arrow DOWN0000" x="164" y="0" width="164" height="164" frameX="0" frameY="0" frameWidth="164" frameHeight="164" />
+<SubTexture name="arrow UP0000" x="328" y="0" width="164" height="164" frameX="0" frameY="0" frameWidth="164" frameHeight="164" />
+<SubTexture name="arrow RIGHT0000" x="492" y="0" width="164" height="164" frameX="0" frameY="0" frameWidth="164" frameHeight="164" />
+<SubTexture name="arrow SPACE0000" x="0" y="164" width="164" height="164" frameX="0" frameY="0" frameWidth="164" frameHeight="164" />
+<SubTexture name="arrow black0000" x="164" y="164" width="164" height="164" frameX="0" frameY="0" frameWidth="164" frameHeight="164" />
+<SubTexture name="arrow black hold end0000" x="328" y="164" width="54" height="68" frameX="0" frameY="0" frameWidth="54" frameHeight="68" />
+<SubTexture name="arrow black hold piece0000" x="382" y="164" width="54" height="48" frameX="0" frameY="0" frameWidth="54" frameHeight="48" />
+<SubTexture name="arrow black confirm0000" x="0" y="328" width="240" height="236" frameX="0" frameY="0" frameWidth="240" frameHeight="236" />
+<SubTexture name="arrow black confirm0001" x="240" y="328" width="240" height="236" frameX="0" frameY="0" frameWidth="240" frameHeight="236" />
+<SubTexture name="arrow black confirm0002" x="480" y="328" width="218" height="210" frameX="0" frameY="0" frameWidth="218" frameHeight="210" />
+<SubTexture name="arrow black press0000" x="698" y="328" width="164" height="164" frameX="0" frameY="0" frameWidth="164" frameHeight="164" />
+<SubTexture name="arrow black press0001" x="0" y="564" width="164" height="164" frameX="0" frameY="0" frameWidth="164" frameHeight="164" />
+<SubTexture name="arrow blue0000" x="164" y="564" width="164" height="164" frameX="0" frameY="0" frameWidth="164" frameHeight="164" />
+<SubTexture name="arrow blue hold end0000" x="328" y="564" width="54" height="68" frameX="0" frameY="0" frameWidth="54" frameHeight="68" />
+<SubTexture name="arrow blue hold piece0000" x="382" y="564" width="54" height="48" frameX="0" frameY="0" frameWidth="54" frameHeight="48" />
+<SubTexture name="arrow blue confirm0000" x="0" y="728" width="242" height="239" frameX="0" frameY="0" frameWidth="242" frameHeight="239" />
+<SubTexture name="arrow blue confirm0001" x="242" y="728" width="242" height="239" frameX="0" frameY="0" frameWidth="242" frameHeight="239" />
+<SubTexture name="arrow blue confirm0002" x="484" y="728" width="223" height="212" frameX="0" frameY="0" frameWidth="223" frameHeight="212" />
+<SubTexture name="arrow blue press0000" x="707" y="728" width="164" height="164" frameX="0" frameY="0" frameWidth="164" frameHeight="164" />
+<SubTexture name="arrow blue press0001" x="0" y="967" width="164" height="164" frameX="0" frameY="0" frameWidth="164" frameHeight="164" />
+<SubTexture name="arrow dark0000" x="164" y="967" width="164" height="164" frameX="0" frameY="0" frameWidth="164" frameHeight="164" />
+<SubTexture name="arrow dark hold end0000" x="328" y="967" width="54" height="68" frameX="0" frameY="0" frameWidth="54" frameHeight="68" />
+<SubTexture name="arrow dark hold piece0000" x="382" y="967" width="54" height="48" frameX="0" frameY="0" frameWidth="54" frameHeight="48" />
+<SubTexture name="arrow dark confirm0000" x="0" y="1131" width="227" height="230" frameX="0" frameY="0" frameWidth="227" frameHeight="230" />
+<SubTexture name="arrow dark confirm0001" x="227" y="1131" width="227" height="230" frameX="0" frameY="0" frameWidth="227" frameHeight="230" />
+<SubTexture name="arrow dark confirm0002" x="454" y="1131" width="230" height="234" frameX="0" frameY="0" frameWidth="230" frameHeight="234" />
+<SubTexture name="arrow dark press0000" x="684" y="1131" width="164" height="164" frameX="0" frameY="0" frameWidth="164" frameHeight="164" />
+<SubTexture name="arrow dark press0001" x="0" y="1365" width="164" height="164" frameX="0" frameY="0" frameWidth="164" frameHeight="164" />
+<SubTexture name="arrow darkred0000" x="164" y="1365" width="164" height="164" frameX="0" frameY="0" frameWidth="164" frameHeight="164" />
+<SubTexture name="arrow darkred hold end0000" x="328" y="1365" width="54" height="68" frameX="0" frameY="0" frameWidth="54" frameHeight="68" />
+<SubTexture name="arrow darkred hold piece0000" x="382" y="1365" width="54" height="48" frameX="0" frameY="0" frameWidth="54" frameHeight="48" />
+<SubTexture name="arrow darkred confirm0000" x="0" y="1529" width="240" height="236" frameX="0" frameY="0" frameWidth="240" frameHeight="236" />
+<SubTexture name="arrow darkred confirm0001" x="240" y="1529" width="240" height="236" frameX="0" frameY="0" frameWidth="240" frameHeight="236" />
+<SubTexture name="arrow darkred confirm0002" x="480" y="1529" width="218" height="210" frameX="0" frameY="0" frameWidth="218" frameHeight="210" />
+<SubTexture name="arrow darkred press0000" x="698" y="1529" width="164" height="164" frameX="0" frameY="0" frameWidth="164" frameHeight="164" />
+<SubTexture name="arrow darkred press0001" x="0" y="1765" width="164" height="164" frameX="0" frameY="0" frameWidth="164" frameHeight="164" />
+<SubTexture name="arrow green0000" x="164" y="1765" width="164" height="164" frameX="0" frameY="0" frameWidth="164" frameHeight="164" />
+<SubTexture name="arrow green hold end0000" x="328" y="1765" width="54" height="68" frameX="0" frameY="0" frameWidth="54" frameHeight="68" />
+<SubTexture name="arrow green hold piece0000" x="382" y="1765" width="54" height="48" frameX="0" frameY="0" frameWidth="54" frameHeight="48" />
+<SubTexture name="arrow green confirm0000" x="0" y="1929" width="240" height="236" frameX="0" frameY="0" frameWidth="240" frameHeight="236" />
+<SubTexture name="arrow green confirm0001" x="240" y="1929" width="240" height="236" frameX="0" frameY="0" frameWidth="240" frameHeight="236" />
+<SubTexture name="arrow green confirm0002" x="480" y="1929" width="218" height="210" frameX="0" frameY="0" frameWidth="218" frameHeight="210" />
+<SubTexture name="arrow green press0000" x="698" y="1929" width="164" height="164" frameX="0" frameY="0" frameWidth="164" frameHeight="164" />
+<SubTexture name="arrow green press0001" x="0" y="2165" width="164" height="164" frameX="0" frameY="0" frameWidth="164" frameHeight="164" />
+<SubTexture name="arrow orange0000" x="164" y="2165" width="164" height="164" frameX="0" frameY="0" frameWidth="164" frameHeight="164" />
+<SubTexture name="arrow orange hold end0000" x="328" y="2165" width="54" height="68" frameX="0" frameY="0" frameWidth="54" frameHeight="68" />
+<SubTexture name="arrow orange hold piece0000" x="382" y="2165" width="54" height="48" frameX="0" frameY="0" frameWidth="54" frameHeight="48" />
+<SubTexture name="arrow orange confirm0000" x="0" y="2329" width="240" height="236" frameX="0" frameY="0" frameWidth="240" frameHeight="236" />
+<SubTexture name="arrow orange confirm0001" x="240" y="2329" width="240" height="236" frameX="0" frameY="0" frameWidth="240" frameHeight="236" />
+<SubTexture name="arrow orange confirm0002" x="480" y="2329" width="218" height="210" frameX="0" frameY="0" frameWidth="218" frameHeight="210" />
+<SubTexture name="arrow orange press0000" x="698" y="2329" width="164" height="164" frameX="0" frameY="0" frameWidth="164" frameHeight="164" />
+<SubTexture name="arrow orange press0001" x="0" y="2565" width="164" height="164" frameX="0" frameY="0" frameWidth="164" frameHeight="164" />
+<SubTexture name="arrow purple0000" x="164" y="2565" width="164" height="164" frameX="0" frameY="0" frameWidth="164" frameHeight="164" />
+<SubTexture name="arrow purple hold end0000" x="328" y="2565" width="54" height="68" frameX="0" frameY="0" frameWidth="54" frameHeight="68" />
+<SubTexture name="arrow purple hold piece0000" x="382" y="2565" width="54" height="48" frameX="0" frameY="0" frameWidth="54" frameHeight="48" />
+<SubTexture name="arrow purple confirm0000" x="0" y="2729" width="232" height="235" frameX="0" frameY="0" frameWidth="232" frameHeight="235" />
+<SubTexture name="arrow purple confirm0001" x="232" y="2729" width="222" height="225" frameX="0" frameY="0" frameWidth="222" frameHeight="225" />
+<SubTexture name="arrow purple confirm0002" x="454" y="2729" width="229" height="225" frameX="0" frameY="0" frameWidth="229" frameHeight="225" />
+<SubTexture name="arrow purple press0000" x="683" y="2729" width="164" height="164" frameX="0" frameY="0" frameWidth="164" frameHeight="164" />
+<SubTexture name="arrow purple press0001" x="0" y="2964" width="164" height="164" frameX="0" frameY="0" frameWidth="164" frameHeight="164" />
+<SubTexture name="arrow red0000" x="164" y="2964" width="164" height="164" frameX="0" frameY="0" frameWidth="164" frameHeight="164" />
+<SubTexture name="arrow red hold end0000" x="328" y="2964" width="54" height="68" frameX="0" frameY="0" frameWidth="54" frameHeight="68" />
+<SubTexture name="arrow red hold piece0000" x="382" y="2964" width="54" height="48" frameX="0" frameY="0" frameWidth="54" frameHeight="48" />
+<SubTexture name="arrow red confirm0000" x="0" y="3128" width="227" height="230" frameX="0" frameY="0" frameWidth="227" frameHeight="230" />
+<SubTexture name="arrow red confirm0001" x="227" y="3128" width="227" height="230" frameX="0" frameY="0" frameWidth="227" frameHeight="230" />
+<SubTexture name="arrow red confirm0002" x="454" y="3128" width="230" height="234" frameX="0" frameY="0" frameWidth="230" frameHeight="234" />
+<SubTexture name="arrow red press0000" x="684" y="3128" width="164" height="164" frameX="0" frameY="0" frameWidth="164" frameHeight="164" />
+<SubTexture name="arrow red press0001" x="0" y="3362" width="164" height="164" frameX="0" frameY="0" frameWidth="164" frameHeight="164" />
+<SubTexture name="arrow violet0000" x="164" y="3362" width="164" height="164" frameX="0" frameY="0" frameWidth="164" frameHeight="164" />
+<SubTexture name="arrow violet hold end0000" x="328" y="3362" width="54" height="68" frameX="0" frameY="0" frameWidth="54" frameHeight="68" />
+<SubTexture name="arrow violet hold piece0000" x="382" y="3362" width="54" height="48" frameX="0" frameY="0" frameWidth="54" frameHeight="48" />
+<SubTexture name="arrow violet confirm0000" x="0" y="3526" width="242" height="239" frameX="0" frameY="0" frameWidth="242" frameHeight="239" />
+<SubTexture name="arrow violet confirm0001" x="242" y="3526" width="242" height="239" frameX="0" frameY="0" frameWidth="242" frameHeight="239" />
+<SubTexture name="arrow violet confirm0002" x="484" y="3526" width="223" height="212" frameX="0" frameY="0" frameWidth="223" frameHeight="212" />
+<SubTexture name="arrow violet press0000" x="707" y="3526" width="164" height="164" frameX="0" frameY="0" frameWidth="164" frameHeight="164" />
+<SubTexture name="arrow violet press0001" x="0" y="3765" width="164" height="164" frameX="0" frameY="0" frameWidth="164" frameHeight="164" />
+<SubTexture name="arrow white0000" x="164" y="3765" width="164" height="164" frameX="0" frameY="0" frameWidth="164" frameHeight="164" />
+<SubTexture name="arrow white hold end0000" x="328" y="3765" width="54" height="68" frameX="0" frameY="0" frameWidth="54" frameHeight="68" />
+<SubTexture name="arrow white hold piece0000" x="382" y="3765" width="54" height="48" frameX="0" frameY="0" frameWidth="54" frameHeight="48" />
+<SubTexture name="arrow white confirm0000" x="0" y="3929" width="240" height="236" frameX="0" frameY="0" frameWidth="240" frameHeight="236" />
+<SubTexture name="arrow white confirm0001" x="240" y="3929" width="240" height="236" frameX="0" frameY="0" frameWidth="240" frameHeight="236" />
+<SubTexture name="arrow white confirm0002" x="480" y="3929" width="218" height="210" frameX="0" frameY="0" frameWidth="218" frameHeight="210" />
+<SubTexture name="arrow white press0000" x="698" y="3929" width="164" height="164" frameX="0" frameY="0" frameWidth="164" frameHeight="164" />
+<SubTexture name="arrow white press0001" x="0" y="4165" width="164" height="164" frameX="0" frameY="0" frameWidth="164" frameHeight="164" />
+<SubTexture name="arrow yellow0000" x="164" y="4165" width="164" height="164" frameX="0" frameY="0" frameWidth="164" frameHeight="164" />
+<SubTexture name="arrow yellow hold end0000" x="328" y="4165" width="54" height="68" frameX="0" frameY="0" frameWidth="54" frameHeight="68" />
+<SubTexture name="arrow yellow hold piece0000" x="382" y="4165" width="54" height="48" frameX="0" frameY="0" frameWidth="54" frameHeight="48" />
+<SubTexture name="arrow yellow confirm0000" x="0" y="4329" width="232" height="235" frameX="0" frameY="0" frameWidth="232" frameHeight="235" />
+<SubTexture name="arrow yellow confirm0001" x="232" y="4329" width="222" height="225" frameX="0" frameY="0" frameWidth="222" frameHeight="225" />
+<SubTexture name="arrow yellow confirm0002" x="454" y="4329" width="229" height="225" frameX="0" frameY="0" frameWidth="229" frameHeight="225" />
+<SubTexture name="arrow yellow press0000" x="683" y="4329" width="164" height="164" frameX="0" frameY="0" frameWidth="164" frameHeight="164" />
+<SubTexture name="arrow yellow press0001" x="0" y="4564" width="164" height="164" frameX="0" frameY="0" frameWidth="164" frameHeight="164" />
+</TextureAtlas>

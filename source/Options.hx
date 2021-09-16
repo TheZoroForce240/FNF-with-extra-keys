@@ -1019,6 +1019,44 @@ class NoteColorOption extends Option
 		return "Alt Note Color: " + FlxG.save.data.noteColor;
 	}
 }
+class RandomNotesOption extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+	public override function press():Bool
+	{
+		FlxG.save.data.randomNotes = !FlxG.save.data.randomNotes;
+		display = updateDisplay();
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return "Randomization: " + (!FlxG.save.data.randomNotes ? "off" : "on");
+	}
+}
+class RandomSectionOption extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+	public override function press():Bool
+	{
+		FlxG.save.data.randomSection = !FlxG.save.data.randomSection;
+		display = updateDisplay();
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return "Section Based Random Notes: " + (!FlxG.save.data.randomSection ? "off" : "on");
+	}
+}
 class GTHColorsOption extends Option
 {
 	public function new(desc:String)

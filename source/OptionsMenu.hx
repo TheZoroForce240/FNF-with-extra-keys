@@ -26,11 +26,8 @@ class OptionsMenu extends MusicBeatState
 
 	var options:Array<OptionCategory> = [
 		new OptionCategory("Mod Specfic", [
-			new OldTimingsOption("Change between KE 1.5.4 and KE 1.4.2 Hit timings"),
-			new NoteSplashOption("Toggle if a Splash will appear when hitting sicks"),
-			new NoteColorOption("Change the color of the second up arrow for 8/9 key"),
-			new GTHColorsOption("Change the color of the notes for 5 key to match the colors from Guitar Hero"),
-			new GTHModeOption("Change the input system to act similar to Guitar Hero (actual controller recommended)")
+			new OldTimingsOption("Change between KE 1.5.4 and KE 1.4.2 Hit timings."),
+			new NoteSplashOption("Toggle if a Splash will appear when hitting sicks.")
 		]),
 		new OptionCategory("Gameplay", [
 			new GhostTapOption("Ghost Tapping is when you tap a direction and it doesn't give you a miss."),
@@ -74,6 +71,10 @@ class OptionsMenu extends MusicBeatState
 			new Optimization("No backgrounds, no characters, centered notes, no player 2."),
 			new GraphicLoading("On startup, cache every character. Significantly decrease load times. (HIGH MEMORY)"),
 			new BotPlay("Showcase your charts and mods with autoplay."),
+		]),
+		new OptionCategory("Experimental", [
+			new GTHColorsOption("Change the color of the notes for 5 key to match the colors from Guitar Hero."),
+			new GTHModeOption("Change the input system to act similar to Guitar Hero(actual controller recommended)")
 		]),
 		new OptionCategory("Saves and Data", [
 			#if desktop

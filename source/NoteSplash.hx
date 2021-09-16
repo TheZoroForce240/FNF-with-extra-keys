@@ -13,7 +13,6 @@ class NoteSplash extends FlxSprite
 	public static var colors:Array<String> = ['purple', 'blue', 'green', 'red', 'white', 'yellow', 'violet', 'black', 'darkblue'];
 
 	var colorsThatDontChange:Array<String> = ['purple', 'blue', 'green', 'red', 'white', 'yellow', 'violet', 'black', 'darkblue', 'orange', 'darkred'];
-
 	public function new(nX:Float, nY:Float, color:Int)
 	{
 

@@ -118,14 +118,6 @@ class PauseSubState extends MusicBeatSubstate
 		var accepted = controls.ACCEPT;
 		var oldOffset:Float = 0;
 
-		if (gamepad != null && KeyBinds.gamepad)
-		{
-			upP = gamepad.justPressed.DPAD_UP;
-			downP = gamepad.justPressed.DPAD_DOWN;
-			leftP = gamepad.justPressed.DPAD_LEFT;
-			rightP = gamepad.justPressed.DPAD_RIGHT;
-		}
-
 		// pre lowercasing the song name (update)
 		var songLowercase = StringTools.replace(PlayState.SONG.song, " ", "-").toLowerCase();
 		switch (songLowercase) {

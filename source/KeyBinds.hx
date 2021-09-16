@@ -152,7 +152,6 @@ class KeyBinds
             trace("No R2");
         }
 
-        trace('${FlxG.save.data.leftBind}-${FlxG.save.data.downBind}-${FlxG.save.data.upBind}-${FlxG.save.data.rightBind}');
     }
 
 }

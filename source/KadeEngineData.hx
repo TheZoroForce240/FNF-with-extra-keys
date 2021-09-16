@@ -126,6 +126,27 @@ class KadeEngineData
 
 		if (FlxG.save.data.gthm == null)
 			FlxG.save.data.gthm = false;
+
+		if (FlxG.save.data.randomNotes == null)
+			FlxG.save.data.randomNotes = false;
+
+		if (FlxG.save.data.randomSection == null)
+			FlxG.save.data.randomSection = true;
+
+		if (FlxG.save.data.mania == null)
+			FlxG.save.data.mania = 0;
+
+		if (FlxG.save.data.randomMania == null)
+			FlxG.save.data.randomMania = 0;
+
+		if (FlxG.save.data.flip == null)
+			FlxG.save.data.flip = false;
+
+		if (FlxG.save.data.bothSide == null)
+			FlxG.save.data.bothSide = false;
+
+		if (FlxG.save.data.randomNoteTypes == null)
+			FlxG.save.data.randomNoteTypes = 0;
 		
 		var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
 		

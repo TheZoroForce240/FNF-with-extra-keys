@@ -17,6 +17,8 @@ class Character extends FlxSprite
 
 	public var holdTimer:Float = 0;
 
+	public var isPlayingAsBF:Bool;
+
 	public function new(x:Float, y:Float, ?character:String = "bf", ?isPlayer:Bool = false)
 	{
 		super(x, y);
@@ -24,6 +26,8 @@ class Character extends FlxSprite
 		animOffsets = new Map<String, Array<Dynamic>>();
 		curCharacter = character;
 		this.isPlayer = isPlayer;
+
+		isPlayingAsBF = !FlxG.save.data.flip;
 
 		var tex:FlxAtlasFrames;
 		antialiasing = FlxG.save.data.antialiasing;
@@ -282,6 +286,7 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHTmiss', 'BF NOTE RIGHT MISS', 24, false);
 				animation.addByPrefix('singDOWNmiss', 'BF NOTE DOWN MISS', 24, false);
 				animation.addByPrefix('hey', 'BF HEY', 24, false);
+				animation.addByPrefix('singHey', 'BF HEY', 24, false);
 				animation.addByPrefix('hit', 'BF hit', 24, false);
 
 				animation.addByPrefix('firstDeath', "BF dies", 24, false);
@@ -300,6 +305,7 @@ class Character extends FlxSprite
 				addOffset("singLEFTmiss", 12, 24);
 				addOffset("singDOWNmiss", -11, -19);
 				addOffset("hey", 7, 4);
+				addOffset("singHey", 7, 4);
 				addOffset('firstDeath', 37, 11);
 				addOffset('deathLoop', 37, 5);
 				addOffset('deathConfirm', 37, 69);
@@ -322,6 +328,7 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHTmiss', 'BF NOTE RIGHT MISS', 24, false);
 				animation.addByPrefix('singDOWNmiss', 'BF NOTE DOWN MISS', 24, false);
 				animation.addByPrefix('hey', 'BF HEY', 24, false);
+				animation.addByPrefix('singHey', 'BF HEY', 24, false);
 
 				addOffset('idle', -5);
 				addOffset("singUP", -29, 27);
@@ -333,6 +340,7 @@ class Character extends FlxSprite
 				addOffset("singLEFTmiss", 12, 24);
 				addOffset("singDOWNmiss", -11, -19);
 				addOffset("hey", 7, 4);
+				addOffset("singHey", 7, 4);
 
 				playAnim('idle');
 
@@ -528,25 +536,50 @@ class Character extends FlxSprite
 
 	override function update(elapsed:Float)
 	{
-		if (!curCharacter.startsWith('bf'))
+		if (!isPlayingAsBF)
 		{
-			if (animation.curAnim.name.startsWith('sing'))
-			{
-				holdTimer += elapsed;
-			}
-
-			var dadVar:Float = 4;
-
-			if (curCharacter == 'dad')
-				dadVar = 6.1;
-			if (holdTimer >= Conductor.stepCrochet * dadVar * 0.001)
-			{
-				trace('dance');
-				dance();
-				holdTimer = 0;
-			}
+			if (curCharacter.startsWith('bf') && !isPlayer)
+				{
+					if (animation.curAnim.name.startsWith('sing'))
+					{
+						holdTimer += elapsed;
+					}
+		
+					var dadVar:Float = 4;
+		
+					if (curCharacter == 'dad')
+						dadVar = 6.1;
+					if (holdTimer >= Conductor.stepCrochet * dadVar * 0.001)
+					{
+						trace('dance');
+						dance();
+						holdTimer = 0;
+					}
+				}
+		
 		}
-
+		else
+		{
+			if (!isPlayer)
+				{
+					if (animation.curAnim.name.startsWith('sing'))
+					{
+						holdTimer += elapsed;
+					}
+		
+					var dadVar:Float = 4;
+		
+					if (curCharacter == 'dad')
+						dadVar = 6.1;
+					if (holdTimer >= Conductor.stepCrochet * dadVar * 0.001)
+					{
+						trace('dance');
+						dance();
+						holdTimer = 0;
+					}
+				}
+		}
+		
 		switch (curCharacter)
 		{
 			case 'gf':

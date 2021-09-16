@@ -252,6 +252,10 @@ class ModchartState
 					PlayState.instance.addObject(PlayState.boyfriend);
 					PlayState.instance.iconP2.animation.play(id);
 	}
+	function changeMania(newMania:Int)
+	{
+		PlayState.instance.switchMania(newMania);
+	}
 
 	function makeAnimatedLuaSprite(spritePath:String,names:Array<String>,prefixes:Array<String>,startAnim:String, id:String)
 	{
@@ -425,6 +429,8 @@ class ModchartState
 				Lua_helper.add_callback(lua,"changeDadCharacter", changeDadCharacter);
 
 				Lua_helper.add_callback(lua,"changeBoyfriendCharacter", changeBoyfriendCharacter);
+
+				Lua_helper.add_callback(lua,"changeMania", changeMania);
 	
 				Lua_helper.add_callback(lua,"getProperty", getPropertyByName);
 

@@ -1035,7 +1035,6 @@ class Controls extends FlxActionSet
 	{
 
 		loadKeyBinds();
-
 		/*bindKeys(Control.N0, [A]);
 		bindKeys(Control.N1, [S]);
 		bindKeys(Control.N2, [D]);
@@ -1052,6 +1051,18 @@ class Controls extends FlxActionSet
 		bindKeys(Control.L2, [J]);
 	 	bindKeys(Control.D1, [K]);
 		bindKeys(Control.R2, [L]);
+
+		bindKeys(Control.UP, [FlxKey.fromString("W"), FlxKey.UP]);
+		bindKeys(Control.DOWN, [FlxKey.fromString("S"), FlxKey.DOWN]);
+		bindKeys(Control.LEFT, [FlxKey.fromString("A"), FlxKey.LEFT]);
+		bindKeys(Control.RIGHT, [FlxKey.fromString("D"), FlxKey.RIGHT]);
+		bindKeys(Control.ACCEPT, [Z, SPACE, ENTER]);
+		bindKeys(Control.BACK, [BACKSPACE, ESCAPE]);
+		bindKeys(Control.PAUSE, [P, ENTER, ESCAPE]);
+		bindKeys(Control.RESET, [FlxKey.fromString("R")]);
+		#end
+
+
 		/*if (reset)
 			removeKeyboard();
 

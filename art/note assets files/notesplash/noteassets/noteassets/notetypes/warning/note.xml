@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="note.png"><SubTexture name="note angel hold end0000" x="0" y="0" width="54" height="68" frameX="0" frameY="0" frameWidth="54" frameHeight="68" />
+<SubTexture name="note angel hold piece0000" x="54" y="0" width="54" height="48" frameX="0" frameY="0" frameWidth="54" frameHeight="48" />
+<SubTexture name="note angel down0000" x="108" y="0" width="159" height="157" frameX="0" frameY="0" frameWidth="159" frameHeight="157" />
+<SubTexture name="note angel left0000" x="267" y="0" width="158" height="160" frameX="0" frameY="0" frameWidth="158" frameHeight="160" />
+<SubTexture name="note angel right0000" x="0" y="160" width="158" height="161" frameX="0" frameY="0" frameWidth="158" frameHeight="161" />
+<SubTexture name="note angel space0000" x="158" y="160" width="163" height="164" frameX="0" frameY="0" frameWidth="163" frameHeight="164" />
+<SubTexture name="note angel up0000" x="321" y="160" width="160" height="157" frameX="0" frameY="0" frameWidth="160" frameHeight="157" />
+<SubTexture name="note bob hold end0000" x="481" y="160" width="54" height="68" frameX="0" frameY="0" frameWidth="54" frameHeight="68" />
+<SubTexture name="note bob hold piece0000" x="0" y="324" width="54" height="48" frameX="0" frameY="0" frameWidth="54" frameHeight="48" />
+<SubTexture name="note bob down0000" x="54" y="324" width="159" height="157" frameX="0" frameY="0" frameWidth="159" frameHeight="157" />
+<SubTexture name="note bob left0000" x="213" y="324" width="158" height="160" frameX="0" frameY="0" frameWidth="158" frameHeight="160" />
+<SubTexture name="note bob right0000" x="371" y="324" width="158" height="161" frameX="0" frameY="0" frameWidth="158" frameHeight="161" />
+<SubTexture name="note bob space0000" x="0" y="485" width="163" height="164" frameX="0" frameY="0" frameWidth="163" frameHeight="164" />
+<SubTexture name="note bob up0000" x="163" y="485" width="160" height="157" frameX="0" frameY="0" frameWidth="160" frameHeight="157" />
+<SubTexture name="note fire hold end0000" x="323" y="485" width="54" height="68" frameX="0" frameY="0" frameWidth="54" frameHeight="68" />
+<SubTexture name="note fire hold piece0000" x="377" y="485" width="54" height="48" frameX="0" frameY="0" frameWidth="54" frameHeight="48" />
+<SubTexture name="note fire down0000" x="0" y="649" width="164" height="164" frameX="0" frameY="0" frameWidth="164" frameHeight="164" />
+<SubTexture name="note fire left0000" x="164" y="649" width="164" height="164" frameX="0" frameY="0" frameWidth="164" frameHeight="164" />
+<SubTexture name="note fire right0000" x="328" y="649" width="164" height="164" frameX="0" frameY="0" frameWidth="164" frameHeight="164" />
+<SubTexture name="note fire space0000" x="492" y="649" width="164" height="164" frameX="0" frameY="0" frameWidth="164" frameHeight="164" />
+<SubTexture name="note fire up0000" x="0" y="813" width="164" height="164" frameX="0" frameY="0" frameWidth="164" frameHeight="164" />
+<SubTexture name="note glitch hold end0000" x="164" y="813" width="54" height="68" frameX="0" frameY="0" frameWidth="54" frameHeight="68" />
+<SubTexture name="note glitch hold piece0000" x="218" y="813" width="54" height="48" frameX="0" frameY="0" frameWidth="54" frameHeight="48" />
+<SubTexture name="note glitch down0000" x="272" y="813" width="159" height="157" frameX="0" frameY="0" frameWidth="159" frameHeight="157" />
+<SubTexture name="note glitch left0000" x="0" y="977" width="158" height="160" frameX="0" frameY="0" frameWidth="158" frameHeight="160" />
+<SubTexture name="note glitch right0000" x="158" y="977" width="158" height="161" frameX="0" frameY="0" frameWidth="158" frameHeight="161" />
+<SubTexture name="note glitch space0000" x="316" y="977" width="163" height="164" frameX="0" frameY="0" frameWidth="163" frameHeight="164" />
+<SubTexture name="note glitch up0000" x="479" y="977" width="160" height="157" frameX="0" frameY="0" frameWidth="160" frameHeight="157" />
+<SubTexture name="note halo hold end0000" x="0" y="1141" width="54" height="68" frameX="0" frameY="0" frameWidth="54" frameHeight="68" />
+<SubTexture name="note halo hold piece0000" x="54" y="1141" width="54" height="48" frameX="0" frameY="0" frameWidth="54" frameHeight="48" />
+<SubTexture name="note halo down0000" x="108" y="1141" width="159" height="157" frameX="0" frameY="0" frameWidth="159" frameHeight="157" />
+<SubTexture name="note halo left0000" x="267" y="1141" width="158" height="160" frameX="0" frameY="0" frameWidth="158" frameHeight="160" />
+<SubTexture name="note halo right0000" x="0" y="1301" width="158" height="161" frameX="0" frameY="0" frameWidth="158" frameHeight="161" />
+<SubTexture name="note halo space0000" x="158" y="1301" width="163" height="164" frameX="0" frameY="0" frameWidth="163" frameHeight="164" />
+<SubTexture name="note halo up0000" x="321" y="1301" width="160" height="157" frameX="0" frameY="0" frameWidth="160" frameHeight="157" />
+<SubTexture name="note warning hold end0000" x="481" y="1301" width="54" height="68" frameX="0" frameY="0" frameWidth="54" frameHeight="68" />
+<SubTexture name="note warning hold piece0000" x="0" y="1465" width="54" height="48" frameX="0" frameY="0" frameWidth="54" frameHeight="48" />
+<SubTexture name="note warning down0000" x="54" y="1465" width="159" height="157" frameX="0" frameY="0" frameWidth="159" frameHeight="157" />
+<SubTexture name="note warning left0000" x="213" y="1465" width="158" height="160" frameX="0" frameY="0" frameWidth="158" frameHeight="160" />
+<SubTexture name="note warning right0000" x="371" y="1465" width="158" height="161" frameX="0" frameY="0" frameWidth="158" frameHeight="161" />
+<SubTexture name="note warning space0000" x="0" y="1626" width="163" height="164" frameX="0" frameY="0" frameWidth="163" frameHeight="164" />
+<SubTexture name="note warning up0000" x="163" y="1626" width="160" height="157" frameX="0" frameY="0" frameWidth="160" frameHeight="157" />
+</TextureAtlas>

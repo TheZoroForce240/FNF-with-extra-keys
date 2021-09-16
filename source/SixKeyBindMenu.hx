@@ -37,6 +37,7 @@ class SixKeyBindMenu extends FlxSubState
     var warningTween:FlxTween;
     var keyText:Array<String> = ["LEFT1", "UP", "RIGHT1", "LEFT2", "DOWN", "RIGHT2"];
     var defaultKeys:Array<String> = ["S", "D", "F", "J", "K", "L"];
+    var defaultArrowKeys:Array<String> = ["S", "D", "F", "LEFT", "DOWN", "RIGHT"];
 
     var defaultGpKeys:Array<String> = ["DPAD_LEFT", "DPAD_DOWN", "DPAD_UP", "DPAD_RIGHT"];
     var curSelected:Int = 0;
@@ -89,7 +90,7 @@ class SixKeyBindMenu extends FlxSubState
         blackBox = new FlxSprite(0,0).makeGraphic(FlxG.width,FlxG.height,FlxColor.BLACK);
         add(blackBox);
 
-        infoText = new FlxText(-10, 580, 1280, 'Current Mode: ${KeyBinds.gamepad ? 'GAMEPAD' : 'KEYBOARD'}. Press TAB to switch\n(${KeyBinds.gamepad ? 'RIGHT Trigger' : 'Escape'} to save, ${KeyBinds.gamepad ? 'LEFT Trigger' : 'Backspace'} to leave without saving. ${KeyBinds.gamepad ? 'START To change a keybind' : ''})', 72);
+        infoText = new FlxText(-10, 580, 1280, 'Current Mode: ${KeyBinds.gamepad ? 'GAMEPAD' : 'KEYBOARD'}. Press TAB to switch\n(${KeyBinds.gamepad ? 'RIGHT Trigger' : 'Escape'} to save, ${KeyBinds.gamepad ? 'LEFT Trigger' : 'Backspace'} to reset, ${KeyBinds.gamepad ? 'why are you using gamepad lol' : 'L'} to set up for Arrow Keys. ${KeyBinds.gamepad ? 'START To change a keybind' : ''})', 72);
 		infoText.scrollFactor.set(0, 0);
 		infoText.setFormat("VCR OSD Mono", 24, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		infoText.borderSize = 2;
@@ -153,6 +154,9 @@ class SixKeyBindMenu extends FlxSubState
                 }
                 else if (FlxG.keys.justPressed.BACKSPACE){
                     reset();
+                }
+                else if (FlxG.keys.justPressed.L){
+                    resetArrows();
                 }
                 if (gamepad != null) // GP Logic
                 {
@@ -301,6 +305,14 @@ class SixKeyBindMenu extends FlxSubState
 
         for(i in 0...6){
             keys[i] = defaultKeys[i];
+        }
+        quit();
+
+    }
+    function resetArrows(){
+
+        for(i in 0...6){
+            keys[i] = defaultArrowKeys[i];
         }
         quit();
 

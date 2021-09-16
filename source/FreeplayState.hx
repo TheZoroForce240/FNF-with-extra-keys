@@ -29,6 +29,18 @@ class FreeplayState extends MusicBeatState
 	var scoreText:FlxText;
 	var comboText:FlxText;
 	var diffText:FlxText;
+	var randomText:FlxText;
+	var randomModeText:FlxText;
+	var maniaText:FlxText;
+	var flipModeText:FlxText;
+	var bothSideText:FlxText;
+	var randomManiaText:FlxText;
+	var noteTypesText:FlxText;
+
+	var keyAmmo:Array<Int> = [4, 6, 9, 5, 7, 8, 1, 2, 3];
+	var randMania:Array<String> = ["Off", "Low Chance", "Medium Chance", "High Chance"];
+	var randNoteTypes:Array<String> = ["Off", "Low Chance", "Medium Chance", "High Chance", 'Unfair'];
+
 	var lerpScore:Int = 0;
 	var intendedScore:Int = 0;
 	var combo:String = '';
@@ -105,6 +117,30 @@ class FreeplayState extends MusicBeatState
 		scoreBG.alpha = 0.6;
 		add(scoreBG);
 
+		randomText = new FlxText(FlxG.width * 0.7, 489, 0, FlxG.save.data.randomNotes ? "Randomization On (R)" : "Randomization Off (R)", 20);
+		randomText.setFormat(Paths.font("vcr.ttf"), 24, FlxColor.WHITE, RIGHT);
+
+		randomModeText = new FlxText(randomText.x, randomText.y + 32, FlxG.save.data.randomSection ? "Mode: Per Section (best for extra keys) (T)" : "Mode: Regular (T)", 16);
+		randomModeText.setFormat(Paths.font("vcr.ttf"), 14, FlxColor.WHITE, RIGHT);
+
+		randomManiaText = new FlxText(randomText.x, randomText.y + 64, "Randomly change Amount of keys: " + randMania[FlxG.save.data.randomMania] + " (Y)", 16);
+		randomManiaText.setFormat(Paths.font("vcr.ttf"), 14, FlxColor.WHITE, RIGHT);
+
+		maniaText = new FlxText(randomText.x, randomText.y + 96, "Set ammount of keys: " + keyAmmo[FlxG.save.data.mania] + " (4 = default) (U)", 24);
+		maniaText.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT);
+
+		noteTypesText = new FlxText(randomText.x, randomText.y + 128, "Randomly Place Note Types: " + randNoteTypes[FlxG.save.data.randomNoteTypes] + "(I)", 24);
+		noteTypesText.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT);
+
+		flipModeText = new FlxText(randomText.x, randomText.y + 160, FlxG.save.data.flip ? "Play as Oppenent: On (O)" : "Play as Oppenent: Off (O)", 20);
+		flipModeText.setFormat(Paths.font("vcr.ttf"), 24, FlxColor.WHITE, RIGHT);
+
+		bothSideText = new FlxText(randomText.x, randomText.y + 192, FlxG.save.data.bothSide ? "Both side: On (only 4k songs, turns into 8k) (P)" : "Both side: Off (P)", 16);
+		bothSideText.setFormat(Paths.font("vcr.ttf"), 14, FlxColor.WHITE, RIGHT);
+
+		var settingsBG:FlxSprite = new FlxSprite(randomText.x - 6, 484).makeGraphic(Std.int(FlxG.width * 0.35), 300, 0xFF000000);
+		settingsBG.alpha = 0.6;
+		add(settingsBG);
 		diffText = new FlxText(scoreText.x, scoreText.y + 36, 0, "", 24);
 		diffText.font = scoreText.font;
 		add(diffText);
@@ -114,6 +150,13 @@ class FreeplayState extends MusicBeatState
 		add(comboText);
 
 		add(scoreText);
+		add(randomText);
+		add(randomModeText);
+		add(maniaText);
+		add(flipModeText);
+		add(bothSideText);
+		add(randomManiaText);
+		add(noteTypesText);
 
 		changeSelection();
 		changeDiff();
@@ -220,6 +263,51 @@ class FreeplayState extends MusicBeatState
 			changeSelection(1);
 		}
 
+
+		if (FlxG.keys.justPressed.R)
+		{
+			FlxG.save.data.randomNotes = !FlxG.save.data.randomNotes;
+			randomText.text = FlxG.save.data.randomNotes ? "Randomization On (R)" : "Randomization Off (R)";
+		}
+		if (FlxG.keys.justPressed.T)
+		{
+			FlxG.save.data.randomSection = !FlxG.save.data.randomSection;
+			randomModeText.text = FlxG.save.data.randomSection ? "Mode: Per Section (best for extra keys) (T)" : "Mode: Regular (T)";
+		}
+
+		if (FlxG.keys.justPressed.Y)
+			{
+				FlxG.save.data.randomMania += 1;
+				if (FlxG.save.data.randomMania > 3)
+					FlxG.save.data.randomMania = 0;
+				randomManiaText.text = "Randomly change Amount of keys: " + randMania[FlxG.save.data.randomMania] + " (Y)";
+			}
+
+		if (FlxG.keys.justPressed.U)
+		{
+			FlxG.save.data.mania += 1;
+			if (FlxG.save.data.mania > 8)
+				FlxG.save.data.mania = 0;
+			maniaText.text = "Set ammount of keys: " + keyAmmo[FlxG.save.data.mania] + " (4 = default) (U)";
+		}
+		if (FlxG.keys.justPressed.I)
+			{
+				FlxG.save.data.randomNoteTypes += 1;
+				if (FlxG.save.data.randomNoteTypes > 4)
+					FlxG.save.data.randomNoteTypes = 0;
+				noteTypesText.text = "Randomly Place Note Types: " + randNoteTypes[FlxG.save.data.randomNoteTypes] + "(I)";
+			}
+		if (FlxG.keys.justPressed.O)
+		{
+			FlxG.save.data.flip = !FlxG.save.data.flip;
+			flipModeText.text = FlxG.save.data.flip ? "Play as Oppenent: On (O)" : "Play as Oppenent: Off (O)";
+		}
+		if (FlxG.keys.justPressed.P)
+		{
+			FlxG.save.data.bothSide = !FlxG.save.data.bothSide;
+			bothSideText.text = FlxG.save.data.bothSide ? "Both side: On (only 4k songs, turns into 8k) (P)" : "Both side: Off (P)";
+		}
+
 		if (FlxG.keys.justPressed.LEFT)
 			changeDiff(-1);
 		if (FlxG.keys.justPressed.RIGHT)
@@ -232,25 +320,51 @@ class FreeplayState extends MusicBeatState
 
 		if (accepted)
 		{
-			// adjusting the song name to be compatible
-			var songFormat = StringTools.replace(songs[curSelected].songName, " ", "-");
-			switch (songFormat) {
-				case 'Dad-Battle': songFormat = 'Dadbattle';
-				case 'Philly-Nice': songFormat = 'Philly';
+			if (!FlxG.keys.pressed.SHIFT)
+			{
+				// adjusting the song name to be compatible
+				var songFormat = StringTools.replace(songs[curSelected].songName, " ", "-");
+				switch (songFormat) {
+					case 'Dad-Battle': songFormat = 'Dadbattle';
+					case 'Philly-Nice': songFormat = 'Philly';
+				}
+				
+				trace(songs[curSelected].songName);
+
+				var poop:String = Highscore.formatSong(songFormat, curDifficulty);
+
+				trace(poop);
+				
+				PlayState.SONG = Song.loadFromJson(poop, songs[curSelected].songName);
+				PlayState.isStoryMode = false;
+				PlayState.storyDifficulty = curDifficulty;
+				PlayState.storyWeek = songs[curSelected].week;
+				trace('CUR WEEK' + PlayState.storyWeek);
+				LoadingState.loadAndSwitchState(new PlayState());
 			}
-			
-			trace(songs[curSelected].songName);
+			else
+			{
+				// adjusting the song name to be compatible
+				var songFormat = StringTools.replace(songs[curSelected].songName, " ", "-");
+				switch (songFormat) {
+					case 'Dad-Battle': songFormat = 'Dadbattle';
+					case 'Philly-Nice': songFormat = 'Philly';
+				}
+				
+				trace(songs[curSelected].songName);
 
-			var poop:String = Highscore.formatSong(songFormat, curDifficulty);
+				var poop:String = Highscore.formatSong(songFormat, curDifficulty);
 
-			trace(poop);
-			
-			PlayState.SONG = Song.loadFromJson(poop, songs[curSelected].songName);
-			PlayState.isStoryMode = false;
-			PlayState.storyDifficulty = curDifficulty;
-			PlayState.storyWeek = songs[curSelected].week;
-			trace('CUR WEEK' + PlayState.storyWeek);
-			LoadingState.loadAndSwitchState(new PlayState());
+				trace(poop);
+				
+				PlayState.SONG = Song.loadFromJson(poop, songs[curSelected].songName);
+				PlayState.isStoryMode = false;
+				PlayState.storyDifficulty = curDifficulty;
+				PlayState.storyWeek = songs[curSelected].week;
+				LoadingState.loadAndSwitchState(new ChartingState());
+				Main.editor = true;
+			}
+
 		}
 	}
 

@@ -398,6 +398,8 @@ class PlayState extends MusicBeatState
 
 		maniaToChange = mania;
 
+		Note.scaleSwitch = true;
+
 		if (SONG == null)
 			SONG = Song.loadFromJson('tutorial', 'tutorial');
 

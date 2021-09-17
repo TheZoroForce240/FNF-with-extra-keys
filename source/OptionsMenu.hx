@@ -73,7 +73,6 @@ class OptionsMenu extends MusicBeatState
 			new BotPlay("Showcase your charts and mods with autoplay."),
 		]),
 		new OptionCategory("Experimental", [
-			new GTHColorsOption("Change the color of the notes for 5 key to match the colors from Guitar Hero."),
 			new GTHModeOption("Change the input system to act similar to Guitar Hero(actual controller recommended)")
 		]),
 		new OptionCategory("Saves and Data", [

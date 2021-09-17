@@ -407,15 +407,9 @@ class Note extends FlxSprite
 			case 1: 
 				frameN = ['purple', 'green', 'red', 'yellow', 'blue', 'dark'];
 			case 2: 
-				if (noteTypeCheck == 'pixel')
-					frameN = ['purple', 'blue', 'green', 'red', 'white', 'yellow', 'violet', 'black', 'dark'];
-				else
-					frameN = ['purple', 'blue', 'green', 'red', 'white', 'yellow', 'violet', 'darkred', 'dark'];
+				frameN = ['purple', 'blue', 'green', 'red', 'white', 'yellow', 'violet', 'darkred', 'dark'];
 			case 3: 
-				if (FlxG.save.data.gthc && noteTypeCheck != 'pixel')
-					frameN = ['green', 'red', 'yellow', 'dark', 'orange'];
-				else
-					frameN = ['purple', 'blue', 'white', 'green', 'red'];
+				frameN = ['purple', 'blue', 'white', 'green', 'red'];
 			case 4: 
 				frameN = ['purple', 'green', 'red', 'white', 'yellow', 'blue', 'dark'];
 			case 5: 
